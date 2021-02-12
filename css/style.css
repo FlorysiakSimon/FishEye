@@ -8,16 +8,44 @@
 }
 a {
   text-decoration: none;
+  color: inherit;
+}
+ul li {
+  list-style-type: none;
 }
 /*HEADER*/
 header {
   display: flex;
   flex-direction: row;
-  width: 70%;
+  width: 65%;
+  justify-content: space-between;
 }
 .headerLogo {
   width: 200px;
   height: 50px;
+}
+
+.nav {
+  display: flex;
+}
+
+.navButton {
+  color: #901c1c;
+  line-height: 23px;
+  font-weight: 500;
+  font-size: 12px;
+  border-radius: 12px;
+  box-sizing: border-box;
+  border: 0.5px solid #c4c4c4;
+  background-color: white;
+  padding: 0 10px 0 5px;
+  text-align: center;
+  font-weight: 500;
+  margin: 2px;
+}
+.navButton:hover {
+  color: white;
+  background-color: #901c1c;
 }
 /*MAIN*/
 
@@ -33,6 +61,7 @@ header {
 /*Article */
 
 .photographer {
+  margin-top: 2em;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
