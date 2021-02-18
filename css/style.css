@@ -29,7 +29,8 @@ header {
   display: flex;
 }
 
-.navButton {
+.navButton,
+.photographerItemTag {
   color: #901c1c;
   line-height: 23px;
   font-weight: 500;
@@ -79,8 +80,8 @@ header {
   display: block;
   margin: 0 auto;
   object-fit: cover;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
 }
 .photographerItemName {
@@ -109,8 +110,16 @@ header {
 .photographerItemTagline {
   font-size: 10px;
   color: #000000;
+  text-align: center;
 }
 .photographerItemPrice {
   font-size: 9px;
   color: #757575;
+  text-align: center;
+}
+
+.photographerItemTaglist {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
