@@ -1,4 +1,4 @@
-/*export class Photographer {
+export class Photographer {
     constructor(data) {
         this.name = data.name;
         this.id = data.id;
@@ -11,17 +11,17 @@
         this.index_photo = data.index_photo;
     }
     
-    photographerArticle() {
-        let article = `<article id="photographer-${this.id}" class="card">
-                            <a href="pages/photographe.html?id=${this.id}" aria-label="aller vers la page de ${this.name}">
-                                <img class="photographerItemPhoto" src="${this.chosenPicture}" alt="">
+    toHTML() {
+        let article = `<article id="${this.id}" class="photographerItem">
+                            <a href="photograher/photographer.html?id=${this.id}" aria-label="${this.name}">
+                                <img class="photographerItemPhoto" src="${this.index_photo}" alt="">
                                 <h3 class="photographerItemName">${this.name}</h3>
                             </a>
                             <p class="photographerItemCity">${this.city}, ${this.country}</p>
                             <p class="photographerItemText">${this.tagline}</p>
                             <p class="photographerItemPrice">${this.price}€/jour</p>
-                            <ul class="photographerItemtaglist" id="taglist_${this.id}">
-                                ${this.tags.map(tag => `<li class="photographerItemtag">#${tag}</li>`).join('')}
+                            <ul class="photographerItemTaglist" id="taglist_${this.id}">
+                                ${this.tags.map(tag => `<li class="photographerItemTag">#${tag}</li>`).join('')}
                             </ul>
                         </article>`;
         return article;
@@ -29,15 +29,17 @@
     createPhotographerArticle(){
         let photographer = data.photographers;
             for (let i = 0; i < photographer.length; i++) {
-                document.querySelector(this.article).innerHTML += photographer[i].photographerArticle();
+                document.querySelector(this.article).innerHTML += photographer[i].toHTML();
             }
     }
    
-} */
+} 
 //}
 
 //display photographer index
-export function createPhotographerArticle(photographers) {
+//export function createPhotographerArticle(photographers) {
+/*
+export const createPhotographerArticle = function(photographers){
     let mainContainer = document.createElement("article");
     mainContainer.classList.add("photographerItem");
     mainContainer.setAttribute("id", `id${photographers.id}`);
@@ -51,25 +53,40 @@ export function createPhotographerArticle(photographers) {
       </a>
       <ul class="photographerItemTaglist"></ul>`;
     for (let tag of photographers.tags) {
-        mainContainer.querySelector(".photographerItemTaglist").insertAdjacentHTML("beforeend", `<li class="photographerItemTag navButton"><a href="${tag}">#${tag}</a></li>`);
+        mainContainer.querySelector(".photographerItemTaglist").insertAdjacentHTML("beforeend", `<li class="photographerItemTag navButton">#${tag}</li>`);
     }
     document.querySelector(".photographer").append(mainContainer);
-  }
+}
 
 //trie par tag
-export function sortByTag(active){
-   // const photographerTags = document.querySelectorAll(".navButton");
-   // const photographerArticle = document.querySelectorAll(".photographerItem");
-   const tags = document.querySelectorAll(".navButton ");
-   const sortTag = !active.classList.contains("tagON"); 
-   console.log(tags);
-   for (let tag of tags){
-        if (tag.textContent === active.textContent) {
+//export function sortByTag(active){
+
+
+export const sortByTag = function(activeTag){
+    const articles = document.querySelectorAll(".photographerItem");
+    console.log(articles);
+    const tags = document.querySelectorAll(".navButton ");
+    const sortTag = activeTag.classList.contains("tagged"); 
+    console.log(tags);
+    for (let tag of tags){
+        if (tag.textContent === activeTag.textContent) {
             if (sortTag) {
-            tag.classList.add("tagON");
+            tag.classList.remove("tagged");
             } else {
-            tag.classList.remove("tagON");
+            tag.classList.add("tagged");
             }
+            
         }
+        for (let article of articles){
+            if(tag.classList.contains("tagged")){
+              tag.parentElement.style.display = "none";
+          } 
+        }
+        
     }
-}
+    /*for (let article of articles){
+        if(tag.classList.contains("tagged")){
+          article.style.display = "none";
+      } 
+    }*/
+    

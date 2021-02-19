@@ -1,6 +1,10 @@
-//import
-import {createPhotographerArticle, sortByTag} from "./photographerArticle.js";
-//import {Photographer} from "./photographerArticle.js";
+//IMPORT
+//import {createPhotographerArticle, sortByTag} from "./photographerArticle.js";
+import {Photographer} from "./photographerArticle.js";
+
+//DOM
+const photographerSection = document.querySelector(".photographer"); //section photographes
+
 
 //GET JSON FILE
 let myRequest = new Request("./data/FishEyeDataFR.json") ;
@@ -10,8 +14,13 @@ fetch(myRequest)
     })
     //display homepage data
     .then((data) => {
+      
+      console.log(Photographer);
         for (let i in data.photographers) {
-            createPhotographerArticle(data.photographers[i]);
+        //createPhotographerArticle(data.photographers[i]);
+        var article = new Photographer(data.photographers[i]);
+        photographerSection.innerHTML += article.toHTML();
+        console.log(article.toHTML());
         }
     })
     //event listener on hashtag
@@ -20,7 +29,7 @@ fetch(myRequest)
     for (let tag of tags) {
       tag.addEventListener("click", function (event) {
         event.preventDefault();
-        sortByTag(event.target.parentNode);
+     //   sortByTag(event.target.parentNode);
       });
     }
   });
