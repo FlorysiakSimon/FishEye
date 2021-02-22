@@ -40,6 +40,49 @@
   color: black;
 }
 
+/*MEDIA*/
+
+.media {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 60px;
+}
+.mediaItem {
+  width: 350px;
+  height: 350px;
+  margin: 20px;
+}
+.mediaItemImg {
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+}
+.mediaItemText {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.mediaItemTitle {
+  font-size: 18px;
+  color: #901c1c;
+  margin: 10px;
+}
+.mediaItemInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.mediaItemLike,
+.mediaItemInfoPrice {
+  font-size: 18px;
+  color: #901c1c;
+  margin: 10px;
+}
+.mediaItemLikeHeart {
+  color: #901c1c;
+}
 /*MODAL FORM */
 /* Modal form */
 .modal-Title {

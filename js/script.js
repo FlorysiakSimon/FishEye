@@ -1,5 +1,4 @@
 //IMPORT
-//import {createPhotographerArticle, sortByTag} from "./photographerArticle.js";
 import {Photographer} from "./photographerArticle.js";
 
 //DOM
@@ -14,22 +13,21 @@ fetch(myRequest)
     })
     //display homepage data
     .then((data) => {
-      
       console.log(Photographer);
-        for (let i in data.photographers) {
+      for (let i in data.photographers) {
         //createPhotographerArticle(data.photographers[i]);
         var article = new Photographer(data.photographers[i]);
         photographerSection.innerHTML += article.toHTML();
         console.log(article.toHTML());
-        }
+      }
     })
     //event listener on hashtag
     .then(function(){
     const tags = document.querySelectorAll(".navButton a");
     for (let tag of tags) {
       tag.addEventListener("click", function (event) {
-        event.preventDefault();
-     //   sortByTag(event.target.parentNode);
+      event.preventDefault();
+      //sortByTag(event.target.parentNode);
       });
     }
   });

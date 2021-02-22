@@ -14,7 +14,7 @@ export class Photographer {
     toHTML() {
         let article = `<article id="${this.id}" class="photographerItem">
                             <a href="photograher/photographer.html?id=${this.id}" aria-label="${this.name}">
-                                <img class="photographerItemPhoto" src="${this.index_photo}" alt="">
+                                <img class="photographerItemPhoto" src="${this.index_photo}" alt="${this.name}">
                                 <h3 class="photographerItemName">${this.name}</h3>
                             </a>
                             <p class="photographerItemCity">${this.city}, ${this.country}</p>
@@ -26,15 +26,15 @@ export class Photographer {
                         </article>`;
         return article;
     }
-    createPhotographerArticle(){
+    /*createPhotographerArticle(){
         let photographer = data.photographers;
             for (let i = 0; i < photographer.length; i++) {
                 document.querySelector(this.article).innerHTML += photographer[i].toHTML();
             }
-    }
+    }*/
    
 } 
-//}
+
 
 //display photographer index
 //export function createPhotographerArticle(photographers) {
