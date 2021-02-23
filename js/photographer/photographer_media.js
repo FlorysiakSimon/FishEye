@@ -11,16 +11,17 @@ export class Media{
         this.price = data.price;
     }
 
-    /*getID(){
-        var url_string = window.location.href; //window.location.href
-        var url = new URL(url_string);
-        var urlID = url.searchParams.get("id");
-        console.log(urlID);
-    } */
-    
-    toHTML(){
+   /* getID(){
         
-        //if (this.photographerId === getID() ){
+    } 
+    */
+    toHTML(){
+        var url_string = window.location.href; 
+        var url = new URL(url_string);
+        var urlID = url.searchParams.get("id"); // get id from url
+        console.log(urlID);
+
+        if (urlID == this.photographerId ){
             let articleMedia =
              `<article class="mediaItem" data-like="${this.likes}" data-userlike=0 id="${this.id}">
                 <img class="mediaItemImg" src="../../img/${this.photographerId}/${this.image}" alt="${this.alt}">
@@ -32,7 +33,8 @@ export class Media{
                     </div>
                 </div>
             </article>`
-      return articleMedia;
+            return articleMedia;
         }
-   // }
+        return "";
+    }
 }

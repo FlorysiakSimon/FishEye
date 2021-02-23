@@ -32,7 +32,7 @@ export class Photographer {
                 document.querySelector(this.article).innerHTML += photographer[i].toHTML();
             }
     }*/
-   
+    //sortByTag(){}
 } 
 
 

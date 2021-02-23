@@ -3,10 +3,10 @@ import {Media} from "./photographer_media.js";
 
 //DOM
 const mediaSection = document.querySelector(".media"); //section media
-var url_string = window.location.href; //window.location.href
+/*var url_string = window.location.href; //window.location.href
 var url = new URL(url_string);
 var urlID = url.searchParams.get("id");
-console.log(urlID);
+console.log(urlID); */
 
 
 //GET JSON FILE
@@ -17,15 +17,10 @@ fetch(myRequest)
     })
     //display homepage data
     .then((data) => {
-      console.log(data.media);
-      var datamedia = data.media;
-      for (let i in datamedia) {
-        if (datamedia.photographerId === urlID ){ 
-            //createPhotographerArticle(data.photographers[i]);
-            var article = new Media(data.media[i]);
-            console.log (article);
-            mediaSection.innerHTML += article.toHTML();
-        }
+      for (let i in data.media) {
+          var articleMedia = new Media(data.media[i]);
+          mediaSection.innerHTML += articleMedia.toHTML();
+      //}
       }
     });
     

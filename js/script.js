@@ -15,10 +15,8 @@ fetch(myRequest)
     .then((data) => {
       console.log(Photographer);
       for (let i in data.photographers) {
-        //createPhotographerArticle(data.photographers[i]);
         var article = new Photographer(data.photographers[i]);
         photographerSection.innerHTML += article.toHTML();
-        console.log(article.toHTML());
       }
     })
     //event listener on hashtag
