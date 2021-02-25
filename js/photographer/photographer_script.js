@@ -1,12 +1,10 @@
 //IMPORT
 import {Media} from "./photographer_media.js";
+import {Photographer} from "../photographerArticle.js";
 
 //DOM
+const photographerSelected = document.querySelector(".photographerInfo"); // section photographer
 const mediaSection = document.querySelector(".media"); //section media
-/*var url_string = window.location.href; //window.location.href
-var url = new URL(url_string);
-var urlID = url.searchParams.get("id");
-console.log(urlID); */
 
 
 //GET JSON FILE
@@ -17,9 +15,15 @@ fetch(myRequest)
     })
     //display homepage data
     .then((data) => {
+      console.log()
+      for (let i in data.photographers){
+        var articlePhotographer = new Photographer(data.photographers[i]);
+        photographerSelected.innerHTML += articlePhotographer.toHTMLID();
+        console.log(articlePhotographer)
+      }  
       for (let i in data.media) {
           var articleMedia = new Media(data.media[i]);
-          mediaSection.innerHTML += articleMedia.toHTML();
+          mediaSection.innerHTML += articleMedia.toHTMLGallery();
       //}
       }
     });

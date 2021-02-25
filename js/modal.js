@@ -1,6 +1,6 @@
 // DOM Elements
 const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
+const modalBtn = document.querySelector(".modal-btn");
 const close = document.querySelector(".close");
 const btnClose = document.querySelector(".btn-close");
 //DOM FORM Elements 
@@ -9,10 +9,14 @@ const lastName = document.getElementById("last"); // nom
 const mail = document.getElementById("email");// mail
 //const formValid = document.querySelector(".formValid"); // modal form valid
 
-
+console.log(modalBtn);
 // launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-//modalBtn.addEventListener("click", launchModal);
+//modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+
+/*if(modalBtn){
+  modalBtn.addEventListener('click', launchModal, false);
+}*/
+modalBtn.addEventListener("click", launchModal);
 
 
 // launch modal form

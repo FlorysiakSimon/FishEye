@@ -26,6 +26,34 @@ export class Photographer {
                         </article>`;
         return article;
     }
+
+    toHTMLID() {
+        var url_string = window.location.href; 
+        var url = new URL(url_string);
+        var urlID = url.searchParams.get("id"); // get id from url
+        
+        if (urlID == this.id ){
+            let article = `<article id="${this.id}" class="photographerItem">
+                                <div class="photographerItemMedia">
+                                    <img class="photographerItemPhoto" src="../${this.index_photo}" alt="${this.name}">
+                                </div>
+                                <div class="photographerInfoContact">
+                                    <button id="contactButton" class="btn-signup modal-btn" aria-label="Contact Me">Contactez-moi</button>
+                                </div>
+                                <div class="photographerItemInfo">
+                                    <h1 class="photographerItemName">${this.name}</h1>            
+                                    <p class="photographerItemCity">${this.city}, ${this.country}</p>
+                                    <p class="photographerItemText">${this.tagline}</p>
+                                    <ul class="photographerItemTaglist" id="taglist_${this.id}">
+                                        ${this.tags.map(tag => `<li class="photographerItemTag">#${tag}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            </article>`;
+            return article;
+        } 
+
+        return "";
+    }
     /*createPhotographerArticle(){
         let photographer = data.photographers;
             for (let i = 0; i < photographer.length; i++) {

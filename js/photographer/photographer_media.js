@@ -12,18 +12,23 @@ export class Media{
     }
 
    /* getID(){
-        
-    } 
-    */
-    toHTML(){
         var url_string = window.location.href; 
         var url = new URL(url_string);
         var urlID = url.searchParams.get("id"); // get id from url
         console.log(urlID);
+    }  */
+    
+
+    toHTMLGallery(){
+        var url_string = window.location.href; 
+        var url = new URL(url_string);
+        var urlID = url.searchParams.get("id"); // get id from url
+        console.log(urlID); 
 
         if (urlID == this.photographerId ){
             let articleMedia =
              `<article class="mediaItem" data-like="${this.likes}" data-userlike=0 id="${this.id}">
+                <div class="mediaVideoImg"></div>
                 <img class="mediaItemImg" src="../../img/${this.photographerId}/${this.image}" alt="${this.alt}">
                 <div class="mediaItemText">
                     <div><h4 class="mediaItemTitle mediaItemText">${this.alt}</h4></div>
@@ -35,6 +40,14 @@ export class Media{
             </article>`
             return articleMedia;
         }
-        return "";
+        /*if (this.image != null) {
+            document.querySelector(".mediaVideoImg").insertAdjacentHTML("beforeend", `<img class="mediaItemImg" src="../../img/${this.photographerId}/${this.image}" alt="${this.alt}">`)
+        }*/
+        /*if (this.video != null) {
+            let articleVideo = document.querySelector(".mediaVideoImg");
+            articleVideo.insertAdjacentHTML("beforeend", `<video class="mediaItemImg"><source src="../../img/${this.photographerId}/${this.video}" type="video/mp4" alt='${this.alt}'></video>`);
+        }*/
+    
+        return ""; 
     }
 }
