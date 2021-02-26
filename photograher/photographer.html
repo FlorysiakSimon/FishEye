@@ -15,7 +15,10 @@
 <main>
 
 <!--INFO PHOTOGRAPHER-->
-<section class="photographerInfo">    
+<section class="photographerInfo">   
+  <div class="photographerInfoContact">
+    <button id="contactButton" class="btn-signup modal-btn" aria-label="Contact Me">Contactez-moi</button>
+  </div> 
 </section>
 
 
@@ -48,9 +51,6 @@
             <input class="text-control" type="text" id="last" name="last" minlength="2" aria-label="Your message"/><br>
             <span class="formErrorText" id="errorLastName">Veuillez saisir un message.</span>
           </div>
-          
-
-          
           <input class="btn-submit button" type="submit" onclick="return validate();" value="Envoyer" aria-label="Send"/>
         </form>
         
@@ -69,6 +69,21 @@
 
 <!--GALLERY-->
 <section class="media">
+  <aside class="sort">
+    <p class="sortText" tabindex="0">Trier par</p>
+    <ul class="sortList" role="menu" aria-expanded="false">
+      <li class="sortListText">
+        <button class="sortListChoice" aria-label="Actuellement trié par popularité">Popularité</button>
+      </li>
+      <li class="sortListText"><button class="sortListChoice" aria-label="Trier par date" >Date</button></li>
+      <li class="sortListText"><button class="sortListChoice" aria-label="Trier par titre" >Titre</button></li>
+    </ul>
+  </aside>
+</section>
+
+<section class="profileInfo" >
+  <p class="profileInfoLike">a</p>
+  <p class="profileInfoPrice"></p>
 </section>
 </main>
 

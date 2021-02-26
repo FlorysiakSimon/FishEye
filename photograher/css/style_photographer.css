@@ -6,6 +6,13 @@
 * {
   font-family: "DMSansRegular";
 }
+ul {
+  list-style-type: none;
+}
+button {
+  background-color: inherit;
+  border: none;
+}
 /*Header*/
 .headerLogo {
   width: 200px;
@@ -19,11 +26,18 @@
   margin: auto;
   background: #fafafa;
   border-radius: 5px;
-  display: flex;
+
+  display: grid;
+  grid-template-columns: 1.1fr 1.1fr 0.8fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: ". . .";
 }
 .photographerInfoContact {
   margin-top: 100px;
-  margin-left: 75px;
+
+  grid-column: 2;
+  grid-row: 1;
 }
 
 .photographerItem {
@@ -33,14 +47,10 @@
   margin: auto;
   background: #fafafa;
   border-radius: 5px;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  grid-column: 1;
+  grid-row: 1;
 }
-.photographerItemMedia {
-  flex-grow: 1.5;
-}
+
 .photographerItemPhoto {
   overflow: hidden;
   border-radius: 50%;
@@ -52,8 +62,8 @@
   margin-top: 70px;
 }
 .photographerItemName {
-  font-size: 36px;
-  line-height: 47px;
+  font-size: 64px;
+  line-height: 83px;
   color: #d3573c;
   width: 100%;
   margin-top: 0;
@@ -70,7 +80,6 @@
   line-height: 23px;
   margin-top: 0;
   margin-bottom: 0;
-  text-align: center;
   color: #525252;
 }
 .photographerItemPrice {
@@ -119,6 +128,48 @@
   color: black;
 }
 
+/*DROPDOWN MENU */
+.sort {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 100%;
+  margin-left: 6em;
+}
+.sortText {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23px;
+  color: black;
+  padding-right: 1.5rem;
+  margin-top: 0.75rem;
+}
+.sortList {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+  justify-items: stretch;
+  align-items: center;
+  border-radius: 0.3125rem;
+  background-color: #901c1c;
+  z-index: 2;
+}
+.sortListText {
+  position: relative;
+}
+.sortListChoice {
+  color: white;
+  font-size: 1.25rem;
+  height: 4.625rem;
+  width: 12rem;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
 /*MEDIA*/
 
 .media {
@@ -162,6 +213,28 @@
 .mediaItemLikeHeart {
   color: #901c1c;
 }
+
+.profileInfo {
+  position: fixed;
+  bottom: 0;
+  right: 2.25rem;
+  background-color: #db8876;
+  border-radius: 0.3125rem 0.3125rem 0 0;
+  white-space: nowrap;
+  z-index: 3;
+}
+.profileInfoLike,
+.profileInfoPrice {
+  display: inline-flex;
+  white-space: pre;
+  font-size: 24px;
+  margin: 0;
+  line-height: 31px;
+  font-weight: 500;
+  color: black;
+  padding: 1.3125rem 2rem;
+}
+
 /*MODAL FORM */
 /* Modal form */
 .modal-Title {

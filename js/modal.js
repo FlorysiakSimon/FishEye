@@ -1,6 +1,7 @@
+
 // DOM Elements
 const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelector(".modal-btn");
+const modalBtn = document.getElementById("contactButton");
 const close = document.querySelector(".close");
 const btnClose = document.querySelector(".btn-close");
 //DOM FORM Elements 
@@ -9,7 +10,7 @@ const lastName = document.getElementById("last"); // nom
 const mail = document.getElementById("email");// mail
 //const formValid = document.querySelector(".formValid"); // modal form valid
 
-console.log(modalBtn);
+
 // launch modal event
 //modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -17,13 +18,13 @@ console.log(modalBtn);
   modalBtn.addEventListener('click', launchModal, false);
 }*/
 modalBtn.addEventListener("click", launchModal);
+console.log(modalBtn);
 
-
-// launch modal form
+// display modal form
 function launchModal() {
   modalbg.style.display = "block";
 }
-
+//console.log(launchModal());
 //close modal form
 function closeModal(){
   modalbg.style.display = "none";
@@ -78,7 +79,7 @@ function validate(){
   
 }
 
- 
+
 
 /*
 if(window.location.href.indexOf("?first=") > 1){ //verify get method on submit
