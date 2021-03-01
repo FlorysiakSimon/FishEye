@@ -10,6 +10,8 @@ export class Media{
         this.date = data.date;
         this.price = data.price;
         this.urlID = this.getID();
+        this.mediaImgVid = this.toHTMLGalleryImgVideo();
+       
     }
 
     getID(){
@@ -21,11 +23,10 @@ export class Media{
 
     toHTMLGallery(){
      
-        console.log(this.urlID);  
+        //console.log(this.urlID);  
         let articleMedia =
         `<article class="mediaItem" data-like="${this.likes}" data-userlike=0 id="${this.id}">
-           <div class="mediaVideoImg"></div>
-           <img class="mediaItemImg" src="../../img/${this.photographerId}/${this.image}" alt="${this.alt}">
+           <div class="mediaVideoImg">${this.mediaImgVid}</div>
            <div class="mediaItemText">
                <div><h4 class="mediaItemTitle mediaItemText">${this.alt}</h4></div>
                <div class="mediaItemInfo">
@@ -38,29 +39,42 @@ export class Media{
            
             return articleMedia;
         }
-        /*if (this.image != null) {
-            document.querySelector(".mediaVideoImg").insertAdjacentHTML("beforeend", `<img class="mediaItemImg" src="../../img/${this.photographerId}/${this.image}" alt="${this.alt}">`)
-        }*/
-        /*if (this.video != null) {
-            let articleVideo = document.querySelector(".mediaVideoImg");
-            articleVideo.insertAdjacentHTML("beforeend", `<video class="mediaItemImg"><source src="../../img/${this.photographerId}/${this.video}" type="video/mp4" alt='${this.alt}'></video>`);
-        }*/
+        
     
         return ""; 
     }
-    toHTMLGalleryImg(){
-       let articleMediaImg = `<img class="mediaItemImg" src="../../img/${this.photographerId}/${this.image}" alt="${this.alt}">`
-        if (this.urlID == this.photographerId ){
-           
+    toHTMLGalleryImgVideo(){
+        if (this.image != null){
+            let articleMediaImg = `<img class="mediaItemImg" src="../../img/${this.photographerId}/${this.image}" alt="${this.alt}">`;
             return articleMediaImg;
         }
+        if (this.video != null){
+            let articleVideo = `<video class="mediaItemImg"><source src="../../img/${this.photographerId}/${this.video}" type="video/mp4" alt='${this.alt}'></video>`;
+            return articleVideo;
+        }
+        return "";
     }
+    
 
     footerLike(){
-        let bottomPrice = `${this.likes}`
-        if (this.urlID == this.id ){
-            return bottomPrice;
+       //let sum = 0;
+       //  let bottomLikes = `${this.likes}`
+      /* let totalLikes = 0;
+        if (this.urlID == this.photographerId ){
+            var likes  = [this.likes];
+            
+            likes.forEach((i) => {
+                totalLikes += i;
+                console.log(likes);
+                console.log(totalLikes);
+            });
+            
+            //console.log(totalLikes);
+            //console.log([this.likes]);
+            //for( var i in this.likes )
+           // return bottomLikes;
         }
+        */
         return ""; 
     }
 }

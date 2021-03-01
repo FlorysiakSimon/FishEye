@@ -25,7 +25,7 @@ fetch(myRequest)
       for (let i in data.media) {
           var articleMedia = new Media(data.media[i]);
           mediaSection.innerHTML += articleMedia.toHTMLGallery(); //portfolio selon ID
-          
+          photographerLikes.innerHTML +=articleMedia.footerLike();
       //}
       }
     });
