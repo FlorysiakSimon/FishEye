@@ -18,7 +18,7 @@ const mail = document.getElementById("email");// mail
   modalBtn.addEventListener('click', launchModal, false);
 }*/
 modalBtn.addEventListener("click", launchModal);
-console.log(modalBtn);
+//console.log(modalBtn);
 
 // display modal form
 function launchModal() {

@@ -1,5 +1,6 @@
 export class Media{
     constructor(data){
+        this.array = [];
         this.id = data.id;
         this.photographerId = data.photographerId;
         this.video = data.video;
@@ -11,6 +12,8 @@ export class Media{
         this.price = data.price;
         this.urlID = this.getID();
         this.mediaImgVid = this.toHTMLGalleryImgVideo();
+       // this.lightbox = document.querySelector('.lightbox');
+       // this.openBox = this.openBox();
        
     }
 
@@ -25,7 +28,7 @@ export class Media{
      
         //console.log(this.urlID);  
         let articleMedia =
-        `<article class="mediaItem" data-like="${this.likes}" data-userlike=0 id="${this.id}">
+        `<article class="mediaItem" data-like="${this.likes}"  id="${this.id}">
            <div class="mediaVideoImg">${this.mediaImgVid}</div>
            <div class="mediaItemText">
                <div><h4 class="mediaItemTitle mediaItemText">${this.alt}</h4></div>
@@ -45,25 +48,56 @@ export class Media{
     }
     toHTMLGalleryImgVideo(){
         if (this.image != null){
-            let articleMediaImg = `<img class="mediaItemImg" src="../../img/${this.photographerId}/${this.image}" alt="${this.alt}">`;
+            let articleMediaImg = `<img class="mediaItemImg"   src="../../img/${this.photographerId}/${this.image}" aria-label="${this.alt}" alt="${this.alt}" onclick="${this.openModal}">`;
             return articleMediaImg;
         }
         if (this.video != null){
-            let articleVideo = `<video class="mediaItemImg"><source src="../../img/${this.photographerId}/${this.video}" type="video/mp4" alt='${this.alt}'></video>`;
+            let articleVideo = `<video class="mediaItemImg"><source src="../../img/${this.photographerId}/${this.video}" aria-label="${this.alt}" type="video/mp4" alt='${this.alt}'></video>`;
             return articleVideo;
         }
         return "";
     }
     
+    /*openBox() {
+        document.querySelector('.lightbox').style.display = "block";
+    } */
+    /*closeBox() {
+        document.querySelector('.lightbox').style.display = "none";
+    } */
 
     footerLike(){
+        /*let sum = 0;
+        for (let i in Media) {
+            sum += this.likes[i];
+            console.log(sum);
+        }
+        console.log(sum); */
        //let sum = 0;
        //  let bottomLikes = `${this.likes}`
-      /* let totalLikes = 0;
+       
         if (this.urlID == this.photographerId ){
-            var likes  = [this.likes];
+            const likes = this.likes;
             
-            likes.forEach((i) => {
+            //console.log(likes);
+            let totalLikes = 0;
+            /*this.likes.forEach((i) => {
+                totalLikes += i.likes;
+            });*/
+            return totalLikes;
+            /*var likes  = this.likes;
+            totalLikes += likes;
+            console.log(totalLikes);
+            return totalLikes; */
+            /*for (let i in likes){
+                console.log(i)
+                totalLikes += likes[i];
+                console.log(totalLikes)
+            }*/
+           // console.log(totalLikes)
+           // console.log(likes);
+           // totalLikes += likes;
+           // console.log(totalLikes)
+           /* likes.forEach((i) => {
                 totalLikes += i;
                 console.log(likes);
                 console.log(totalLikes);
@@ -72,9 +106,11 @@ export class Media{
             //console.log(totalLikes);
             //console.log([this.likes]);
             //for( var i in this.likes )
-           // return bottomLikes;
+           // return bottomLikes;*/
         }
-        */
+        
+        
         return ""; 
     }
 }
+

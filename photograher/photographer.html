@@ -23,7 +23,7 @@
 
 
 <!--CONTACT FORM-->
-<div class="bground">
+<dialog class="bground">
     <div class="content">
       <span class="close" aria-label="Close contact form"></span>
       <div class="modal-body">
@@ -56,7 +56,7 @@
         
       </div>
     </div>
-  </div>
+  </dialog>
   <!--FORM VALID-->
   <div class="formValid">
     <div class="content">
@@ -67,6 +67,13 @@
     </div>
   </div>
 
+<!--LIGHTBOX-->
+<dialog class="lightbox" aria-label="image closeup view">
+  <div class="lightboxContainer">
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+</dialog>
 <!--GALLERY-->
 <section class="media">
   <aside class="sort">
@@ -90,7 +97,10 @@
 
 
 
+
 <script type="module" src="../js/photographer/photographer_script.js"></script>
 <script type="module" src="../js/modal.js"></script>
+<script type="module" src="../js/photographer/lightbox.js"></script>
+
 </body>
 </html>

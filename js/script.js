@@ -13,19 +13,17 @@ fetch(myRequest)
     })
     //display homepage data
     .then((data) => {
-      console.log(Photographer);
       for (let i in data.photographers) {
         var article = new Photographer(data.photographers[i]);
         photographerSection.innerHTML += article.toHTML();
+        
       }
     })
     //event listener on hashtag
-    .then(function(){
-    const tags = document.querySelectorAll(".navButton a");
-    for (let tag of tags) {
-      tag.addEventListener("click", function (event) {
-      event.preventDefault();
-      //sortByTag(event.target.parentNode);
+    .then(function () {
+      const tags = document.getElementsByClassName("tag");
+      for (let tag of tags) {
+        tag.addEventListener("click", sortByTag());
+        }
       });
-    }
-  });
+    

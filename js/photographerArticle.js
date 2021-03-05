@@ -11,11 +11,13 @@ export class Photographer {
         this.index_photo = data.index_photo;
         this.urlID = this.getID();
     }
+
     getID(){
         var url_string = window.location.href; 
         var url = new URL(url_string);
         return url.searchParams.get("id"); // get id from url
     }  
+    
     toHTML() {
         let article = `<article id="${this.id}" class="photographerItem">
                             <a href="photograher/photographer.html?id=${this.id}" aria-label="${this.name}">
@@ -32,10 +34,7 @@ export class Photographer {
         return article;
     }
 
-    
-
     toHTMLID() {
-        
         let article = `<article id="${this.id}" class="photographerItem">
                                 <div class="photographerItemInfo">
                                     <h1 class="photographerItemName">${this.name}</h1>            
@@ -64,13 +63,27 @@ export class Photographer {
         }
         return ""; 
     }
+
+    sortByTag(){
+        var title = document.getElementsByClassName('tag').title;
+        console.log(title);
+        console.log('aaa');
+        // if(title = this.tags){return toHTML()}
+        //const tag = Photographer.parse(Photographer).filter(({tags}) => tags === '{$this.tags}');
+
+        //var data_filter = Photographer.filter( tags => tags.tags == this.tags)
+        //console.log(data_filter)
+
+       /* this.tags = data.HOMES.filter(function (a) {
+            return this.home_id === '2'; */
+    }
     /*createPhotographerArticle(){
         let photographer = data.photographers;
             for (let i = 0; i < photographer.length; i++) {
                 document.querySelector(this.article).innerHTML += photographer[i].toHTML();
             }
     }*/
-    //sortByTag(){}
+    
 } 
 
 
@@ -127,4 +140,18 @@ export const sortByTag = function(activeTag){
           article.style.display = "none";
       } 
     }*/
+    
+/*export const sortByTag = function(){
+        var title = document.getElementsByClassName('tag').title;
+        console.log(title);
+        console.log('aaa');
+        // if(title = this.tags){return toHTML()}
+        //const tag = Photographer.parse(Photographer).filter(({tags}) => tags === '{$this.tags}');
+
+        //var data_filter = Photographer.filter( tags => tags.tags == this.tags)
+        //console.log(data_filter)
+
+       /* this.tags = data.HOMES.filter(function (a) {
+            return this.home_id === '2';
+        });*/
     
