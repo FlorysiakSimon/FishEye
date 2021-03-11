@@ -25,7 +25,7 @@
 <!--CONTACT FORM-->
 <dialog class="bground">
     <div class="content">
-      <span class="close" aria-label="Close contact form"></span>
+      <span class="close" id="closemodal" aria-label="Close contact form"></span>
       <div class="modal-body">
           <h3 class="modal-Title">Contactez-moi</h3>
         <!-- FORM -->
@@ -70,8 +70,9 @@
 <!--LIGHTBOX-->
 <dialog class="lightbox" aria-label="image closeup view">
   <div class="lightboxContainer">
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    <span class="close" id="closelightbox" aria-label="Close contact form"></span>
+    <a class="prev" onclick="//plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="//plusSlides(1)">&#10095;</a>
   </div>
 </dialog>
 <!--GALLERY-->
@@ -89,7 +90,7 @@
 </section>
 
 <section class="profileInfo" >
-  <p class="profileInfoLike">a</p>
+  <p class="profileInfoLike">a<i class="fas fa-heart profileheart"   aria-label="likes"></i></p>
   <p class="profileInfoPrice"></p>
 </section>
 </main>

@@ -2,7 +2,7 @@
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.getElementById("contactButton");
-const close = document.querySelector(".close");
+const close = document.getElementById("closemodal");
 const btnClose = document.querySelector(".btn-close");
 //DOM FORM Elements 
 const firstName = document.getElementById("first"); // prenom

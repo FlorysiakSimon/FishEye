@@ -21,7 +21,7 @@ export class lightbox{
     closeBox() {
         var box = this.lightbox;
         box.style.display = "none";
-    }*/ 
+    } */
     lightboxHTML(){
         let lightboxItem = `<div class="lightboxContainerMedia">${this.lightboxMedia}<p class"lightboxContainerMediaTitle">${this.alt}</p></div>`;
         if (this.urlID == this.photographerId ){
@@ -47,34 +47,34 @@ export class lightbox{
 /*const imgItem = document.querySelectorAll(".mediaItemImg");
 console.log(imgItem);
 imgItem.forEach((img) => img.addEventListener("click", openBox));
-//console.log(imgItem);
-function openBox() {
+//console.log(imgItem);*/
+
+export function openBox() {
     document.querySelector(".lightbox").style.display = "block";
 }
-  */
-/*function closeBox() {
+  
+export function closeBox() {
     document.querySelector(".lightbox").style.display = "none";
 }
-*/
 
 
 
-/*var slideIndex = 1;
-showSlides(slideIndex);
+//var slideIndex = 1;
+//showSlides(slideIndex);
 
-function plusSlides(n) {
+/*export function plusSlides(n) {
   showSlides(slideIndex += n);
 }
 
-function currentSlide(n) {
+export function currentSlide(n) {
   showSlides(slideIndex = n);
-}*/
-
-/*function showSlides(n) {
+}
+/*
+export function showSlides(n) {
   var i;
-  var slides = document.querySelector("lightbox");
+  var slides = document.getElementsByClassName("lightboxContainerMedia");
   //var dots = document.getElementsByClassName("demo");
- // var captionText = document.querySelector("lightboxContainerMediaTitle");
+// var captionText = document.querySelector("lightboxContainerMediaTitle");
   if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
@@ -83,7 +83,7 @@ function currentSlide(n) {
   /*for (i = 0; i < dots.length; i++) {
       dots[i].className = dots[i].className.replace(" active", "");
   }*/
- // slides[slideIndex-1].style.display = "block";
+  //  slides[slideIndex-1].style.display = "block";
   //dots[slideIndex-1].className += " active";
   //captionText.innerHTML = dots[slideIndex-1].alt;
 //}

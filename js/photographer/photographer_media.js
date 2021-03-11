@@ -79,7 +79,11 @@ export class Media{
             const likes = this.likes;
             
             //console.log(likes);
+            
             let totalLikes = 0;
+            for (let like in likes){
+                totalLikes += like;
+            }
             /*this.likes.forEach((i) => {
                 totalLikes += i.likes;
             });*/
