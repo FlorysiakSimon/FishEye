@@ -131,6 +131,9 @@ a {
   border: none;
   cursor: pointer;
 }
+.btn-submit {
+  margin-top: 2em;
+}
 
 .btn-signup:hover {
   background-color: #db8876;
@@ -161,11 +164,15 @@ a {
   grid-auto-flow: column;
   justify-items: stretch;
   align-items: center;
-  border-radius: 0.3125rem;
-  background-color: #901c1c;
+  border-radius: 25px;
+  padding: 0;
 }
 .sortListText {
   position: relative;
+  background-color: #901c1c;
+}
+.sortListText:not(:first-child) {
+  display: none;
 }
 .sortListChoice {
   color: white;
@@ -262,8 +269,8 @@ a {
 }
 .formErrorText {
   display: none;
-  color: #ff4e60;
-  font-size: 10px;
+  color: black;
+  font-size: 14px;
   font-family: roboto;
   margin-top: 0.5em;
 }
@@ -281,7 +288,7 @@ a {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
+  background-color: white;
 }
 
 .formValid {
@@ -297,7 +304,7 @@ a {
 }
 
 .content {
-  margin: 5% auto;
+  margin: 2% auto;
   width: 100%;
   max-width: 500px;
   animation-name: modalopen;
@@ -316,10 +323,11 @@ a {
 }
 
 label {
-  font-size: 17px;
+  font-size: 24px;
   font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
+  margin-top: 1em;
   color: #312e2e;
 }
 input {
@@ -367,7 +375,7 @@ input[data-error]::after {
   height: 32px;
   opacity: 1;
   cursor: pointer;
-  transform: scale(0.7);
+  transform: scale(1);
 }
 .close:before,
 .close:after {

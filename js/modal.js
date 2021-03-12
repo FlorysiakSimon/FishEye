@@ -21,8 +21,8 @@ modalBtn.addEventListener("click", launchModal);
 //console.log(modalBtn);
 
 // display modal form
-export function launchModal() {
-  modalbg.style.display = "block";
+function launchModal() {
+  document.querySelector(".bground").style.display = "block";
 }
 //console.log(launchModal());
 //close modal form

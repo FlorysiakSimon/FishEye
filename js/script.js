@@ -21,7 +21,7 @@ fetch(myRequest)
     })
     //event listener on hashtag
     .then(function () {
-      const tags = document.getElementsByClassName("tag");
+      //const tags = document.getElementsByClassName("tag");
       /*for (let tag of tags) {
         tag.addEventListener("click", sortByTag());
         } */
