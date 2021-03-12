@@ -26,7 +26,6 @@ export class Media{
 
     toHTMLGallery(){
      
-        //console.log(this.urlID);  
         let articleMedia =
         `<article class="mediaItem" data-like="${this.likes}"  id="${this.id}">
            <div class="mediaVideoImg">${this.mediaImgVid}</div>
@@ -38,14 +37,9 @@ export class Media{
                </div>
            </div>
        </article>`
-        if (this.urlID == this.photographerId ){
-           
-            return articleMedia;
-        }
-        
-    
-        return ""; 
+        return articleMedia;
     }
+
     toHTMLGalleryImgVideo(){
         if (this.image != null){
             let articleMediaImg = `<img class="mediaItemImg"   src="../../img/${this.photographerId}/${this.image}" aria-label="${this.alt}" alt="${this.alt}" onclick="${this.openModal}">`;
@@ -58,63 +52,23 @@ export class Media{
         return "";
     }
     
-    /*openBox() {
-        document.querySelector('.lightbox').style.display = "block";
-    } */
-    /*closeBox() {
-        document.querySelector('.lightbox').style.display = "none";
-    } */
-
+    plusLike(){
+      //  return this.likes++;
+    }
+    
     footerLike(){
-        /*let sum = 0;
-        for (let i in Media) {
-            sum += this.likes[i];
-            console.log(sum);
-        }
-        console.log(sum); */
-       //let sum = 0;
-       //  let bottomLikes = `${this.likes}`
-       
+        
+        let totalLikes = 0;
         if (this.urlID == this.photographerId ){
             const likes = this.likes;
-            
-            //console.log(likes);
-            
-            let totalLikes = 0;
-            for (let like in likes){
-                totalLikes += like;
+            console.log(likes.length);
+            for(var i=0;i<likes.length;i++){
+                totalLikes += likes; 
+
             }
-            /*this.likes.forEach((i) => {
-                totalLikes += i.likes;
-            });*/
-            return totalLikes;
-            /*var likes  = this.likes;
-            totalLikes += likes;
             console.log(totalLikes);
-            return totalLikes; */
-            /*for (let i in likes){
-                console.log(i)
-                totalLikes += likes[i];
-                console.log(totalLikes)
-            }*/
-           // console.log(totalLikes)
-           // console.log(likes);
-           // totalLikes += likes;
-           // console.log(totalLikes)
-           /* likes.forEach((i) => {
-                totalLikes += i;
-                console.log(likes);
-                console.log(totalLikes);
-            });
-            
-            //console.log(totalLikes);
-            //console.log([this.likes]);
-            //for( var i in this.likes )
-           // return bottomLikes;*/
+            return totalLikes; 
+
         }
-        
-        
-        return ""; 
     }
 }
-

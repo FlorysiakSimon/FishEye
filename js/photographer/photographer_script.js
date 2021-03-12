@@ -1,8 +1,6 @@
 //IMPORT
-import {lightbox,openBox,closeBox} from "./lightbox.js";
-import {Media} from "./photographer_media.js";
-import {Photographer} from "../photographerArticle.js";
-
+import {Fabrik} from "../fabrik.js";
+import {openBox,closeBox} from "./lightbox.js";
 
 //DOM
 const photographerSelected = document.querySelector(".photographerInfo"); // section photographer
@@ -10,11 +8,9 @@ const mediaSection = document.querySelector(".media"); //section media
 const photographerLikes = document.querySelector(".profileInfoLike"); //total likes
 const photographerPrice = document.querySelector(".profileInfoPrice"); //prix
 const lightboxContainer = document.querySelector(".lightboxContainer");
+const fabrik = new Fabrik();
 
-//
-/*function openBox() {
-  document.querySelector(".lightbox").style.display = "block";
-}*/
+
 //GET JSON FILE
 let myRequest = new Request("../../data/FishEyeDataFR.json") ;
 fetch(myRequest)
@@ -25,31 +21,38 @@ fetch(myRequest)
     .then((data) => {
       const photographers = data.photographers;
       const media = data.media;
+      var totalLikes = 0;
+
       for (let i in photographers){
-        var articlePhotographer = new Photographer(data.photographers[i]);
+        var articlePhotographer = fabrik.createPhotographer(data.photographers[i]);
+        if(articlePhotographer.urlID == articlePhotographer.id){
         photographerSelected.innerHTML += articlePhotographer.toHTMLID(); // photographer selon ID
         photographerPrice.innerHTML += articlePhotographer.footerPrice(); //prix selon ID
+        }
       }  
       for (let i in media) {
-        var articleMedia = new Media(data.media[i]);
-        mediaSection.innerHTML += articleMedia.toHTMLGallery(); //portfolio selon ID
-        //console.log(photographerLikes);
-        photographerLikes.innerHTML += articleMedia.footerLike();
-        //const mediaItemLikeHeart = document.querySelectorAll(".mediaItemLikeHeart");
-        //console.log(mediaItemLikeHeart)
-        var lightboxGallery = new lightbox(data.media[i]); 
-        lightboxContainer.innerHTML += lightboxGallery.lightboxHTML(); //lightbox selon id
+        var articleMedia =  fabrik.createMedia(data.media[i]);
+        var lightboxGallery = fabrik.createLightbox(data.media[i]); 
+        if (articleMedia.urlID == articleMedia.photographerId){
+          mediaSection.innerHTML += articleMedia.toHTMLGallery(); // gallery
+          lightboxContainer.innerHTML += lightboxGallery.lightboxHTML(); //lightbox 
+          totalLikes += articleMedia.likes; //calcul total likes
+        }
       }
+      photographerLikes.innerHTML = totalLikes + ' <i class="fas fa-heart profileheart"   aria-label="likes"></i> ';
     })
+      
 
       /*LIGHTBOX */
       .then(function () {
       //DOM
+      const likeButton = document.querySelectorAll(".profileheart");
       const imgItem = document.querySelectorAll(".mediaItemImg");
       const closelightbox = document.getElementById("closelightbox");
       //const prev = document.querySelector(".prev");  
       //const next = document.querySelector(".next");
       //EVENT LISTENER  
+      likeButton.forEach((like) => like.addEventListener("click", openBox)),
       imgItem.forEach((img) => img.addEventListener("click", openBox)); //openLightBox
       closelightbox.addEventListener("click", closeBox); //closeLightBox
       //prev.addEventListener("click", plusSlides(-1));
@@ -59,7 +62,7 @@ fetch(myRequest)
       /*function plusSlides(n) {
         showSlides(slideIndex += n);
       }
-*/
+      */
       function currentSlide(n) {
         showSlides(slideIndex = n);
       }

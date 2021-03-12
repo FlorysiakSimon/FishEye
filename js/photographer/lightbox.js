@@ -1,4 +1,4 @@
-export class lightbox{
+export class Lightbox{
     constructor(data){
         this.id = data.id;
         this.photographerId = data.photographerId;
@@ -14,20 +14,11 @@ export class lightbox{
         var url = new URL(url_string);
         return url.searchParams.get("id"); // get id from url
     }
-    /*openBox() {
-        var box = this.lightbox;
-        box.style.display = "block";
-    }
-    closeBox() {
-        var box = this.lightbox;
-        box.style.display = "none";
-    } */
+    
     lightboxHTML(){
         let lightboxItem = `<div class="lightboxContainerMedia">${this.lightboxMedia}<p class"lightboxContainerMediaTitle">${this.alt}</p></div>`;
-        if (this.urlID == this.photographerId ){
             return lightboxItem;
-        }
-        return "";
+       
     }
     lightboxMedia(){
         if (this.image != null){
@@ -38,7 +29,6 @@ export class lightbox{
             let articleVideo = `<video class="lightboxContainerMediaVideo"><source src="../../img/${this.photographerId}/${this.video}" aria-label="${this.alt}" type="video/mp4" alt='${this.alt}'></video>`;
             return articleVideo;
         }
-        return "";
     }
 }
 

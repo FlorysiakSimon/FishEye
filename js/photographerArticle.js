@@ -10,6 +10,7 @@ export class Photographer {
         this.portrait = data.portrait;
         this.index_photo = data.index_photo;
         this.urlID = this.getID();
+        this.urlTAG = this.getTAG();
     }
 
     getID(){
@@ -17,6 +18,11 @@ export class Photographer {
         var url = new URL(url_string);
         return url.searchParams.get("id"); // get id from url
     }  
+    getTAG(){
+        var url_string = window.location.href; 
+        var url = new URL(url_string);
+        return url.searchParams.get("tag"); // get tag from url
+    }
     
     toHTML() {
         let article = `<article id="${this.id}" class="photographerItem">
@@ -31,6 +37,7 @@ export class Photographer {
                                 ${this.tags.map(tag => `<li class="photographerItemTag">#${tag}</li>`).join('')}
                             </ul>
                         </article>`;
+        //if(this.urlTAG == tag){return "1";}
         return article;
     }
 
@@ -41,17 +48,14 @@ export class Photographer {
                                     <p class="photographerItemCity">${this.city}, ${this.country}</p>
                                     <p class="photographerItemText">${this.tagline}</p>
                                     <ul class="photographerItemTaglist" id="taglist_${this.id}">
-                                        ${this.tags.map(tag => `<li class="photographerItemTag">#${tag}</li>`).join('')}
+                                        ${this.tags.map(tag => `<a href="../index.html?tag=${tag}"><li class="photographerItemTag">#${tag}</li></a>`).join('')}
                                     </ul>
                                 </div>
                             </article>
                             <div class="photographerItemMedia">
                                     <img class="photographerItemPhoto" src="../${this.index_photo}" alt="${this.name}">
                             </div>`;
-        if (this.urlID == this.id ){
             return article;
-        } 
-        return "";
     }
 
     
