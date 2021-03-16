@@ -8,6 +8,7 @@ const mediaSection = document.querySelector(".media"); //section media
 const photographerLikes = document.querySelector(".profileInfoLike"); //total likes
 const photographerPrice = document.querySelector(".profileInfoPrice"); //prix
 const lightboxContainer = document.querySelector(".lightboxContainer");
+const photographerName = document.querySelector(".modal-Title"); // Form Name
 const fabrik = new Fabrik();
 
 
@@ -23,16 +24,19 @@ fetch(myRequest)
       const media = data.media;
       var totalLikes = 0;
 
-      for (let i in photographers){
-        var articlePhotographer = fabrik.createPhotographer(data.photographers[i]);
+      for (let i in photographers){ //Photographer
+        var articlePhotographer = fabrik.createPhotographer(photographers[i]);
+        
         if(articlePhotographer.urlID == articlePhotographer.id){
         photographerSelected.innerHTML += articlePhotographer.toHTMLID(); // photographer selon ID
         photographerPrice.innerHTML += articlePhotographer.footerPrice(); //prix selon ID
+        photographerName.innerHTML += articlePhotographer.formName(); // Nom du photographe dans le formulaire
         }
       }  
-      for (let i in media) {
-        var articleMedia =  fabrik.createMedia(data.media[i]);
-        var lightboxGallery = fabrik.createLightbox(data.media[i]); 
+      for (let i in media) { //Media
+        var articleMedia =  fabrik.createMedia(media[i]);
+        var lightboxGallery = fabrik.createLightbox(media[i]); 
+
         if (articleMedia.urlID == articleMedia.photographerId){
           mediaSection.innerHTML += articleMedia.toHTMLGallery(); // gallery
           lightboxContainer.innerHTML += lightboxGallery.lightboxHTML(); //lightbox 
@@ -44,7 +48,7 @@ fetch(myRequest)
       
 
       /*LIGHTBOX */
-      .then(function () {
+    .then(function () {
       //DOM
       const likeButton = document.querySelectorAll(".profileheart");
       const imgItem = document.querySelectorAll(".mediaItemImg");
@@ -52,7 +56,7 @@ fetch(myRequest)
       //const prev = document.querySelector(".prev");  
       //const next = document.querySelector(".next");
       //EVENT LISTENER  
-      likeButton.forEach((like) => like.addEventListener("click", openBox)),
+      //likeButton.forEach((like) => like.addEventListener("click", openBox)),
       imgItem.forEach((img) => img.addEventListener("click", openBox)); //openLightBox
       closelightbox.addEventListener("click", closeBox); //closeLightBox
       //prev.addEventListener("click", plusSlides(-1));

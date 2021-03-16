@@ -1,6 +1,5 @@
 //DOM
 const list = document.querySelector(".sortList");
-console.log(list);
 //event
 
 

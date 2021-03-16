@@ -58,14 +58,17 @@ export class Photographer {
             return article;
     }
 
-    
+    formName(){
+        let name = `Contactez-moi<br>${this.name}`
+        return name;
+    }
 
     footerPrice(){
-        let bottomPrice = `${this.price} €/j`
-        if (this.urlID == this.id ){
-            return bottomPrice;
-        }
-        return ""; 
+        let bottomPrice = `${this.price} € / jour`
+        
+        return bottomPrice;
+        
+       
     }
 
     sortByTag(){

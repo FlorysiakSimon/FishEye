@@ -1,8 +1,10 @@
 //IMPORT
-import {Photographer} from "./photographerArticle.js";
+import {Fabrik} from "./fabrik.js";
+
 
 //DOM
 const photographerSection = document.querySelector(".photographer"); //section photographes
+const fabrik = new Fabrik();
 
 
 //GET JSON FILE
@@ -13,17 +15,18 @@ fetch(myRequest)
     })
     //display homepage data
     .then((data) => {
-      for (let i in data.photographers) {
-        var article = new Photographer(data.photographers[i]);
+      const photographers = data.photographers;
+      for (let i in photographers) {
+        var article = fabrik.createPhotographer(photographers[i]);
         photographerSection.innerHTML += article.toHTML();
         
       }
     })
     //event listener on hashtag
     .then(function () {
-      //const tags = document.getElementsByClassName("tag");
-      /*for (let tag of tags) {
+      const tags = document.getElementsByClassName("tag");
+      for (let tag of tags) {
         tag.addEventListener("click", sortByTag());
-        } */
+        } 
       });
     
