@@ -79,10 +79,29 @@
 <!--GALLERY-->
 <section class="media">
   <aside class="sort">
-    <p class="sortText" >Trier par</p>
+  <p class="sortText" >Trier par</p>
+  <div class="container">
+    <div class="custom-select-wrapper">
+        <div class="custom-select">
+            <div class="custom-select__trigger"><span>Popularité</span>
+                <div class="arrow"></div>
+            </div>
+            <div class="custom-options">
+                <button class="custom-option selected" aria-label="Trier par popularité" value="Popularity">Popularité</button>
+                <button class="custom-option" aria-label="Trier par date" value="Date">Date</button>
+                <button class="custom-option" aria-label="Trier par titre" value="Title">Titre</button>
+            </div>
+        </div>
+    </div>
+</div>
+</aside>
+
+  <!--
+  <aside class="sort">
+    
     <ul class="sortList" role="menu" aria-expanded="false">
       <li class="sortListText">
-        <button class="sortListChoice" aria-label="Trier par popularité">Popularité<i class="fas fa-chevron-down"></i></button>
+        <button class="sortListChoice" id="popularity" aria-label="Trier par popularité">Popularité<i class="fas fa-chevron-down"></i></button>
       </li>
       <li class="sortListText">
         <button class="sortListChoice" aria-label="Trier par date" >Date</button>
@@ -92,6 +111,7 @@
       </li>
     </ul>
   </aside>
+  -->
 </section>
 
 <section class="profileInfo" >

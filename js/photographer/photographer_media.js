@@ -1,6 +1,7 @@
 export class Media{
     constructor(data){
-        this.array = [];
+        this.media = [];
+        this.dropdown = document.querySelectorAll
         this.id = data.id;
         this.photographerId = data.photographerId;
         this.video = data.video;
@@ -12,6 +13,8 @@ export class Media{
         this.price = data.price;
         this.urlID = this.getID();
         this.mediaImgVid = this.toHTMLGalleryImgVideo();
+        this.gallery = this.toHTMLGallery();
+       // this.clean = this.cleanGallery();
        // this.lightbox = document.querySelector('.lightbox');
        // this.openBox = this.openBox();
        
@@ -21,11 +24,15 @@ export class Media{
         var url_string = window.location.href; 
         var url = new URL(url_string);
         return url.searchParams.get("id"); // get id from url
-    }  
-    
+    }
 
+   /* cleanGallery() {
+        document.querySelector(".media").innerHTML=""; //section media
+        document.querySelector(".lightboxContainer").innerHTML="" // lightbox
+
+    }
+ */
     toHTMLGallery(){
-     
         let articleMedia =
         `<article class="mediaItem" data-like="${this.likes}"  id="${this.id}">
            <div class="mediaVideoImg">${this.mediaImgVid}</div>
@@ -37,6 +44,7 @@ export class Media{
                </div>
            </div>
        </article>`
+
         return articleMedia;
     }
 
@@ -71,4 +79,8 @@ export class Media{
 
         }
     }
+
+    
+        
+    
 }

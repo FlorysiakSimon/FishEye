@@ -21,7 +21,7 @@ export class Photographer {
     getTAG(){
         var url_string = window.location.href; 
         var url = new URL(url_string);
-        return url.searchParams.get("tag"); // get tag from url
+        return url.searchParams.get("tags"); // get tag from url
     }
     
     toHTML() {
@@ -37,7 +37,6 @@ export class Photographer {
                                 ${this.tags.map(tag => `<li class="photographerItemTag">#${tag}</li>`).join('')}
                             </ul>
                         </article>`;
-        //if(this.urlTAG == tag){return "1";}
         return article;
     }
 
@@ -48,14 +47,14 @@ export class Photographer {
                                     <p class="photographerItemCity">${this.city}, ${this.country}</p>
                                     <p class="photographerItemText">${this.tagline}</p>
                                     <ul class="photographerItemTaglist" id="taglist_${this.id}">
-                                        ${this.tags.map(tag => `<a href="../index.html?tag=${tag}"><li class="photographerItemTag">#${tag}</li></a>`).join('')}
+                                        ${this.tags.map(tag => `<a href="../index.html?tags=${tag}"><li class="photographerItemTag">#${tag}</li></a>`).join('')}
                                     </ul>
                                 </div>
                             </article>
                             <div class="photographerItemMedia">
                                     <img class="photographerItemPhoto" src="../${this.index_photo}" alt="${this.name}">
                             </div>`;
-            return article;
+        return article;
     }
 
     formName(){
@@ -65,100 +64,10 @@ export class Photographer {
 
     footerPrice(){
         let bottomPrice = `${this.price} € / jour`
-        
         return bottomPrice;
         
        
     }
-
-    sortByTag(){
-        var title = document.getElementsByClassName('tag').title;
-        console.log(title);
-        console.log('aaa');
-        // if(title = this.tags){return toHTML()}
-        //const tag = Photographer.parse(Photographer).filter(({tags}) => tags === '{$this.tags}');
-
-        //var data_filter = Photographer.filter( tags => tags.tags == this.tags)
-        //console.log(data_filter)
-
-       /* this.tags = data.HOMES.filter(function (a) {
-            return this.home_id === '2'; */
-    }
-    /*createPhotographerArticle(){
-        let photographer = data.photographers;
-            for (let i = 0; i < photographer.length; i++) {
-                document.querySelector(this.article).innerHTML += photographer[i].toHTML();
-            }
-    }*/
-    
 } 
 
 
-//display photographer index
-//export function createPhotographerArticle(photographers) {
-/*
-export const createPhotographerArticle = function(photographers){
-    let mainContainer = document.createElement("article");
-    mainContainer.classList.add("photographerItem");
-    mainContainer.setAttribute("id", `id${photographers.id}`);
-    mainContainer.innerHTML = `
-      <a href="photographer.html?id${photographers.id}" aria-label="${photographers.name}">
-       <img class="photographerItemPhoto" src="./${photographers.index_photo}" alt="photographer profile picture" />
-       <h3 class="photographerItemName">${photographers.name}</h3>
-       <p class="photographerItemCity">${photographers.city}, ${photographers.country}</p>
-       <p class="photographerItemTagline">${photographers.tagline}</p>
-       <p class="photographerItemPrice">${photographers.price} €/j</p>
-      </a>
-      <ul class="photographerItemTaglist"></ul>`;
-    for (let tag of photographers.tags) {
-        mainContainer.querySelector(".photographerItemTaglist").insertAdjacentHTML("beforeend", `<li class="photographerItemTag navButton">#${tag}</li>`);
-    }
-    document.querySelector(".photographer").append(mainContainer);
-}
-
-//trie par tag
-//export function sortByTag(active){
-
-
-export const sortByTag = function(activeTag){
-    const articles = document.querySelectorAll(".photographerItem");
-    console.log(articles);
-    const tags = document.querySelectorAll(".navButton ");
-    const sortTag = activeTag.classList.contains("tagged"); 
-    console.log(tags);
-    for (let tag of tags){
-        if (tag.textContent === activeTag.textContent) {
-            if (sortTag) {
-            tag.classList.remove("tagged");
-            } else {
-            tag.classList.add("tagged");
-            }
-            
-        }
-        for (let article of articles){
-            if(tag.classList.contains("tagged")){
-              tag.parentElement.style.display = "none";
-          } 
-        }
-        
-    }
-    /*for (let article of articles){
-        if(tag.classList.contains("tagged")){
-          article.style.display = "none";
-      } 
-    }*/
-    
-/*export const sortByTag = function(){
-        var title = document.getElementsByClassName('tag').title;
-        console.log(title);
-        console.log('aaa');
-        // if(title = this.tags){return toHTML()}
-        //const tag = Photographer.parse(Photographer).filter(({tags}) => tags === '{$this.tags}');
-
-        //var data_filter = Photographer.filter( tags => tags.tags == this.tags)
-        //console.log(data_filter)
-
-       /* this.tags = data.HOMES.filter(function (a) {
-            return this.home_id === '2';
-        });*/
-    
