@@ -1,6 +1,7 @@
 export class Media{
     constructor(data){
         this.media = [];
+        this.lightbox =[];
         this.dropdown = document.querySelectorAll
         this.id = data.id;
         this.photographerId = data.photographerId;
@@ -19,19 +20,15 @@ export class Media{
        // this.openBox = this.openBox();
        
     }
-
+    
     getID(){
         var url_string = window.location.href; 
         var url = new URL(url_string);
         return url.searchParams.get("id"); // get id from url
     }
 
-   /* cleanGallery() {
-        document.querySelector(".media").innerHTML=""; //section media
-        document.querySelector(".lightboxContainer").innerHTML="" // lightbox
-
-    }
- */
+    
+ 
     toHTMLGallery(){
         let articleMedia =
         `<article class="mediaItem" data-like="${this.likes}"  id="${this.id}">
@@ -60,9 +57,30 @@ export class Media{
         return "";
     }
     
-    plusLike(){
-      //  return this.likes++;
+    sortMedia(media,value) {
+        this.media = media;
+        this.cleanGallery();
+        switch (value)
+            {
+                case "Popularity":
+                this.media.sort((a, b) => b.likes - a.likes); // trie par like
+                break
+                case "Date":
+                this.media.sort((a,b) =>  new Date(b.date) - new Date(a.date)); // trie selon la date 
+                break
+                case "Title":
+                this.media.sort((a, b) => a.alt.localeCompare(b.alt, 'fr', {ignorePunctuation: true})); //trie par titre
+            }
+        this.updateGallery();
     }
+    cleanGallery() {
+        document.querySelector(".media").innerHTML=""; //section media
+        document.querySelector(".lightboxContainer").innerHTML="" // lightbox
+    }
+    updateGallery(){
+     //   listMedia.forEach(media => {mediaSection.innerHTML += media.toHTMLGallery()} );
+    }
+
     
     footerLike(){
         

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+
     <title>FishEyes</title>
 </head>
 <body>
@@ -11,32 +12,29 @@
 <header>
     <a href="index.html"><img class="headerLogo" src="img/logo.png" alt="Fisheye Home page" aria-label="Fisheye Home page"></a>
     <nav aria-label="photographer categories">
-        <ul class="nav">
-            <li class="navButton"><a class="tag" href="?tags=portrait" onclick=""  title="portrait" >#portrait</a></li>
-            <li class="navButton"><a class="tag" href="?tags=art"  title="art">#art</a></li>
-            <li class="navButton"><a class="tag" href="?tags=fashion"  title="fashion">#fashion</a></li>
-            <li class="navButton"><a class="tag" href="?tags=architecture"  title="architecture">#architecture</a></li>
-            <li class="navButton"><a class="tag" href="?tags=travel"  title="travel">#travel</a></li>
-            <li class="navButton"><a class="tag" href="?tags=sport"  title="sport">#sport</a></li>
-            <li class="navButton"><a class="tag" href="?tags=animals"  title="animals">#animals</a></li>
-            <li class="navButton"><a class="tag" href="?tags=events"  title="events">#events</a></li>
-        </ul>
+        
+            <span aria-label="portrait" class="navButton"><a class="tag" href="?tags=portrait" title="portrait" >#portrait</a></span>
+            <span aria-label="art" class="navButton"><a class="tag" href="?tags=art"  title="art">#art</a></span>
+            <span aria-label="fashion" class="navButton"><a class="tag" href="?tags=fashion"  title="fashion">#fashion</a></span>
+            <span aria-label="architecture" class="navButton"><a class="tag" href="?tags=architecture"  title="architecture">#architecture</a></span>
+            <span aria-label="travel" class="navButton"><a class="tag" href="?tags=travel"  title="travel">#travel</a></span>
+            <span aria-label="sport" class="navButton"><a class="tag" href="?tags=sport"  title="sport">#sport</a></span>
+            <span aria-label="animals" class="navButton"><a class="tag" href="?tags=animals"  title="animals">#animals</a></span>
+            <span aria-label="events" class="navButton"><a class="tag" href="?tags=events"  title="events">#events</a></span>
+        
     </nav>
 </header>
 
-
-
-
-
-<main>
+<main id="main">
     <h1 class="mainTitle">Nos photographes</h1>
     <section class="photographer">
-        
     </section>
 </main>
-
+<a id="linktomain" href="#main" aria-label="aller au contenu">Passer au contenu</a>
 <footer></footer>
 
 <script type="module" src="js/script.js"></script>
+<script src="js/scroll.js"></script>
+
 </body>
 </html>

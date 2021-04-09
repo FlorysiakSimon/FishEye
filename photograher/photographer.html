@@ -49,7 +49,7 @@
           </div>
           <div class="formData">
             <label>Votre Message</label><br>
-            <input class="text-control" type="text" id="last" name="last" minlength="2" aria-label="Your message"/><br>
+            <input class="text-control" type="text" id="msg" name="last" minlength="2" aria-label="Your message"/><br>
             <span class="formErrorText" id="errorLastName">Veuillez saisir un message.</span>
           </div>
           <input class="btn-submit button" type="submit" onclick="return validate();" value="Envoyer" aria-label="Send"/>
@@ -71,47 +71,37 @@
 <!--LIGHTBOX-->
 <dialog class="lightbox" aria-label="image closeup view">
   <div class="lightboxContainer">
-    <span class="close" id="closelightbox" aria-label="Close contact form"></span>
-    <a class="prev" onclick="//plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="//plusSlides(1)">&#10095;</a>
+    <span class="close" id="closelightbox" aria-label="Close dialog"></span>
+    <a class="prev" aria-label="previous image" onclick="//plusSlides(-1)">&#10094;</a>
+    <a class="next" aria-label="next image" onclick="//plusSlides(1)">&#10095;</a>
   </div>
 </dialog>
-<!--GALLERY-->
-<section class="media">
-  <aside class="sort">
+
+<!--SORT MENU-->
+
+
+<div class="sort">
   <p class="sortText" >Trier par</p>
   <div class="container">
-    <div class="custom-select-wrapper">
-        <div class="custom-select">
-            <div class="custom-select__trigger"><span>Popularité</span>
-                <div class="arrow"></div>
+    <div class="wrapper">
+        <div class="selectMenu">
+            <div class="selectMenuTrigger" role="button" aria-haspopup="listbox"><span>Popularité</span>
+                <div class="arrow" aria-label="afficher la liste des tris"></div>
             </div>
-            <div class="custom-options">
-                <button class="custom-option selected" aria-label="Trier par popularité" value="Popularity">Popularité</button>
-                <button class="custom-option" aria-label="Trier par date" value="Date">Date</button>
-                <button class="custom-option" aria-label="Trier par titre" value="Title">Titre</button>
+            <div class="selectMenuOptions" role="listbox">
+                <button class="option selected" aria-label="Trier par popularité" value="Popularity">Popularité</button>
+                <button class="option" role="listbox" aria-label="Trier par date" value="Date">Date</button>
+                <button class="option" role="listbox" aria-label="Trier par titre" value="Title">Titre</button>
             </div>
         </div>
     </div>
+  </div>
 </div>
-</aside>
 
-  <!--
-  <aside class="sort">
-    
-    <ul class="sortList" role="menu" aria-expanded="false">
-      <li class="sortListText">
-        <button class="sortListChoice" id="popularity" aria-label="Trier par popularité">Popularité<i class="fas fa-chevron-down"></i></button>
-      </li>
-      <li class="sortListText">
-        <button class="sortListChoice" aria-label="Trier par date" >Date</button>
-      </li>
-      <li class="sortListText">
-        <button class="sortListChoice" aria-label="Trier par titre" >Titre</button>
-      </li>
-    </ul>
-  </aside>
-  -->
+
+<!--GALLERY-->
+<section class="media">
+  
 </section>
 
 <section class="profileInfo" >
@@ -126,7 +116,7 @@
 
 <script type="module" src="../js/photographer/photographer_script.js"></script>
 <script type="module" src="../js/photographer/lightbox.js"></script>
-<script src="../js/photographer/dropdownmenu.js"></script>
+<script type="module" src="../js/photographer/dropdownmenu.js"></script>
 <script  src="../js/modal.js"></script>
 
 </body>

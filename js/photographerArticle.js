@@ -34,7 +34,7 @@ export class Photographer {
                             <p class="photographerItemText">${this.tagline}</p>
                             <p class="photographerItemPrice">${this.price}€/jour</p>
                             <ul class="photographerItemTaglist" id="taglist_${this.id}">
-                                ${this.tags.map(tag => `<li class="photographerItemTag">#${tag}</li>`).join('')}
+                                ${this.tags.map(tag => `<a href="?tags=${tag}"><span aria-label="${tag}" class="photographerItemTag">#${tag}</span></a>`).join('')}
                             </ul>
                         </article>`;
         return article;

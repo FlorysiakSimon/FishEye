@@ -148,6 +148,7 @@ a {
   align-items: center;
   flex: 100%;
   margin-left: 7em;
+  margin-top: 1em;
 }
 .sortText {
   font-size: 18px;
@@ -157,33 +158,24 @@ a {
   padding-right: 1.5rem;
   margin-top: 0.75rem;
 }
-.sortList {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: repeat(3, auto);
-  grid-auto-flow: column;
-  justify-items: stretch;
-  align-items: center;
-  border-radius: 25px;
-  padding: 0;
-}
-.sortListText {
-  position: relative;
-  background-color: #901c1c;
-}
-.sortListText:not(:first-child) {
-  /*display: none; */
-}
-.sortListChoice {
-  color: white;
-  font-size: 1.25rem;
-  height: 4.625rem;
-  width: 12rem;
-  padding: 0 1.5rem;
+
+/*DROPDOWN MENU */
+.sort {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
+  flex: 100%;
+  margin-left: 7em;
+  margin-top: 1em;
+}
+.sortText {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23px;
+  color: black;
+  padding-right: 1.5rem;
+  margin-top: 0.75rem;
 }
 
 .container {
@@ -191,18 +183,18 @@ a {
   max-width: 300px;
 }
 
-.custom-select-wrapper {
+.wrapper {
   position: relative;
   user-select: none;
   width: 100%;
 }
 
-.custom-select {
+.selectMenu {
   display: flex;
   flex-direction: column;
 }
 
-.custom-select__trigger {
+.selectMenuTrigger {
   position: relative;
   display: flex;
   align-items: center;
@@ -218,7 +210,7 @@ a {
   cursor: pointer;
 }
 
-.custom-options {
+.selectMenuOptions {
   position: absolute;
   display: block;
   top: 100%;
@@ -233,13 +225,13 @@ a {
   cursor: pointer;
 }
 
-.custom-select.open .custom-options {
+.selectMenu.open .selectMenuOptions {
   opacity: 1;
   visibility: visible;
   pointer-events: all;
 }
 
-.custom-option {
+.option {
   position: relative;
   display: block;
   cursor: pointer;
@@ -252,11 +244,11 @@ a {
   text-align: left;
 }
 
-.custom-option:hover {
+.option:hover {
   cursor: pointer;
 }
 
-.custom-option.selected {
+.option.selected {
   color: #ffffff;
   display: none;
   background-color: #901c1c;
@@ -299,9 +291,21 @@ a {
   transform: rotate(45deg);
 }
 
+.container {
+  margin: 20px;
+  max-width: 300px;
+}
+
 /*MEDIA*/
 
 .media {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: auto;
+}
+.gallery {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

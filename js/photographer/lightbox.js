@@ -14,11 +14,9 @@ export class Lightbox{
         var url = new URL(url_string);
         return url.searchParams.get("id"); // get id from url
     }
-    
     lightboxHTML(){
         let lightboxItem = `<div class="lightboxContainerMedia">${this.lightboxMedia}<p class"lightboxContainerMediaTitle">${this.alt}</p></div>`;
-            return lightboxItem;
-       
+        return lightboxItem;
     }
     lightboxMedia(){
         if (this.image != null){

@@ -8,22 +8,20 @@ const btnClose = document.querySelector(".btn-close");
 const firstName = document.getElementById("first"); // prenom
 const lastName = document.getElementById("last"); // nom
 const mail = document.getElementById("email");// mail
+const btnSubmit = document.querySelector("btn-submit");
 //const formValid = document.querySelector(".formValid"); // modal form valid
 
 
 // launch modal event
 //modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-
-/*if(modalBtn){
-  modalBtn.addEventListener('click', launchModal, false);
-}*/
 modalBtn.addEventListener("click", launchModal);
-//console.log(modalBtn);
+
 
 // display modal form
 function launchModal() {
   document.querySelector(".bground").style.display = "block";
 }
+
 //console.log(launchModal());
 //close modal form
 function closeModal(){
@@ -43,8 +41,8 @@ function validateEmail(){
   return true;
 }
 
-
-
+//console.log(btnSubmit)
+//btnSubmit.addEventListener("click",validate);
 
 //check if FORM is valid
 function validate(){
@@ -75,8 +73,6 @@ function validate(){
     console.log('email:' , mail.value);
     document.getElementById('errorMail').style.display="none";
   }
-
-  
 }
 
 
