@@ -32,6 +32,7 @@ header {
 .headerLogo {
   width: 200px;
   height: 50px;
+  margin-right: 1em;
 }
 
 .nav {
@@ -66,7 +67,7 @@ header {
   position: absolute;
   top: 15px;
   right: 44px;
-  width: 30%;
+
   margin-top: 5px;
 }
 
@@ -314,4 +315,33 @@ header {
 .open .arrow::after {
   left: 5px;
   transform: rotate(45deg);
+}
+
+@media screen and (max-width: 1220px) {
+  .headerLogo {
+    width: 120px;
+    height: auto;
+    margin-right: 1em;
+  }
+  .mainTitle {
+    font-size: 20px;
+    top: 28px;
+  }
+}
+@media screen and (max-width: 900px) {
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-self: center;
+    width: 89%;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .mainTitle {
+    font-size: 16px;
+  }
+  .headerLogo {
+    width: 80px;
+  }
 }

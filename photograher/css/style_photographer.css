@@ -25,7 +25,7 @@ a {
 /*Header*/
 .headerLogo {
   width: 200px;
-  margin-left: 7em;
+  margin-left: 6%;
 }
 /*Photographer*/
 
@@ -37,13 +37,13 @@ a {
   border-radius: 5px;
 
   display: grid;
-  grid-template-columns: 1.1fr 0.7fr 0.8fr;
+  grid-template-columns: 1.1fr 0.3fr 0.2fr;
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-template-areas: ". . .";
 }
 .photographerInfoContact {
-  margin-top: 100px;
+  margin-top: 60px;
 
   grid-column: 2;
   grid-row: 1;
@@ -54,7 +54,6 @@ a {
   height: 320px;
   margin-top: 60px;
   margin: auto;
-  background: #fafafa;
   border-radius: 5px;
   grid-column: 1;
   grid-row: 1;
@@ -117,7 +116,7 @@ a {
 }
 
 .photographerItemInfo {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .btn-signup,
 .btn-submit {
@@ -146,28 +145,8 @@ a {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  flex: 100%;
-  margin-left: 7em;
-  margin-top: 1em;
-}
-.sortText {
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 23px;
-  color: black;
-  padding-right: 1.5rem;
-  margin-top: 0.75rem;
-}
-
-/*DROPDOWN MENU */
-.sort {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  flex: 100%;
-  margin-left: 7em;
-  margin-top: 1em;
+  width: 87%;
+  margin: auto;
 }
 .sortText {
   font-size: 18px;
@@ -479,12 +458,7 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
+
 .close {
   position: absolute;
   right: 15px;
@@ -511,6 +485,7 @@ input[data-error]::after {
   transform: rotate(-45deg);
 }
 
+/* LIGHTBOX */
 .lightbox {
   display: none;
   width: 100%;
@@ -537,4 +512,66 @@ input[data-error]::after {
   border-radius: 5px;
 
   object-fit: cover;
+}
+
+/* RESPONSIV */
+
+@media screen and (max-width: 1322px) {
+  .photographerInfo {
+    /* grid-template-columns: 1.1fr 0.3fr 0.3fr; */
+  }
+}
+@media screen and (max-width: 1260px) {
+  .photographerInfo {
+    display: flex;
+  }
+  .photographerItemInfo {
+    margin-left: 1.5em;
+  }
+
+  #contactButton {
+    height: 35px;
+    font-size: 18px;
+    white-space: nowrap;
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+}
+
+@media screen and (max-width: 997px) {
+  .photographerInfo {
+    background: white;
+    margin: 0;
+  }
+  .photographerItemPhoto {
+    width: 100px;
+    height: 100px;
+    margin-top: 45px;
+  }
+  .photographerItemName {
+    font-size: 36px;
+    line-height: 46px;
+  }
+  .photographerItemCity,
+  .photographerItemText,
+  .photographerItemTag {
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  .mediaItem {
+    width: 100%;
+    margin: 10px 0px;
+  }
+  .profileInfo {
+    display: none;
+  }
+}
+@media screen and (max-width: 628px) {
+  .sort {
+    display: none;
+  }
 }
