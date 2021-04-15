@@ -82,21 +82,7 @@ export class Media{
     }
 
     
-    footerLike(){
-        
-        let totalLikes = 0;
-        if (this.urlID == this.photographerId ){
-            const likes = this.likes;
-            console.log(likes.length);
-            for(var i=0;i<likes.length;i++){
-                totalLikes += likes; 
-
-            }
-            console.log(totalLikes);
-            return totalLikes; 
-
-        }
-    }
+    
 
     
         

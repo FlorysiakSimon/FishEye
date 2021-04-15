@@ -1,6 +1,5 @@
 //IMPORT
 import {Fabrik} from "./fabrik.js";
-//import {sortByTag} from "./photographerArticle.js";
 
 //DOM
 const photographerSection = document.querySelector(".photographer"); //section photographes

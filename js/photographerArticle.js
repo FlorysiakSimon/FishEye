@@ -65,8 +65,6 @@ export class Photographer {
     footerPrice(){
         let bottomPrice = `${this.price} € / jour`
         return bottomPrice;
-        
-       
     }
 } 
 

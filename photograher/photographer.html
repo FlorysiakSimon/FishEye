@@ -70,10 +70,12 @@
 
 <!--LIGHTBOX-->
 <dialog class="lightbox" aria-label="image closeup view">
-  <div class="lightboxContainer">
-    <span class="close" id="closelightbox" aria-label="Close dialog"></span>
-    <a class="prev" aria-label="previous image" onclick="//plusSlides(-1)">&#10094;</a>
-    <a class="next" aria-label="next image" onclick="//plusSlides(1)">&#10095;</a>
+    <div class="lightbox_content">
+    <button id="closelightbox" class="lightbox__close">Fermer</button>
+    <button class="lightbox__next">Suivant</button>
+    <button class="lightbox__prev">Précédent</button>
+    <div class="lightboxContainer">
+    </div>
   </div>
 </dialog>
 

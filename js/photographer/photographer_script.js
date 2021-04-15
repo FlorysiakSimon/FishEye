@@ -15,6 +15,7 @@ var articleMedia = undefined ;
 var listMedia = [];
 var lightboxList = [];
 var lightboxGallery = undefined;
+var totalLikes = 0;
 
 //GET JSON FILE
 let myRequest = new Request("../../data/FishEyeDataFR.json") ;
@@ -26,7 +27,7 @@ fetch(myRequest)
     .then((data) => {
       const photographers = data.photographers;
       const media = data.media;
-      var totalLikes = 0;
+     
 
       for (let i in photographers){ //Photographer
         var articlePhotographer = fabrik.createPhotographer(photographers[i]);
@@ -48,7 +49,7 @@ fetch(myRequest)
           totalLikes += articleMedia.likes; //calcul total likes
         }
       }
-      photographerLikes.innerHTML = totalLikes + ' <i class="fas fa-heart profileheart"   aria-label="likes"></i> ';
+      photographerLikes.innerHTML = totalLikes + ' <i class="fas fa-heart profileheart"   aria-label="likes"></i> '; // display total like
     })
     
     

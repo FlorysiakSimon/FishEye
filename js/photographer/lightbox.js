@@ -15,7 +15,7 @@ export class Lightbox{
         return url.searchParams.get("id"); // get id from url
     }
     lightboxHTML(){
-        let lightboxItem = `<div class="lightboxContainerMedia">${this.lightboxMedia}<p class"lightboxContainerMediaTitle">${this.alt}</p></div>`;
+        let lightboxItem = `<div class="lightboxContainerMedia">${this.lightboxMedia}<p class="lightboxContainerMediaTitle">${this.alt}</p></div>`;
         return lightboxItem;
     }
     lightboxMedia(){
