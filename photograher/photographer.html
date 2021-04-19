@@ -30,8 +30,7 @@
       <div class="modal-body">
           <h3 class="modal-Title"></h3>
         <!-- FORM -->
-        <form name="reserve" class="modalForm" action="index.html" method="get" onsubmit="return validate();"
-        >
+        <form name="reserve" class="modalForm" action='#'>
           <div class="formData">
             <label>Prénom</label><br>
             <input class="text-control" type="text" id="first" name="first" minlength="2" aria-label="First name"/><br>
@@ -49,10 +48,9 @@
           </div>
           <div class="formData">
             <label>Votre Message</label><br>
-            <input class="text-control" type="text" id="msg" name="last" minlength="2" aria-label="Your message"/><br>
-            <span class="formErrorText" id="errorLastName">Veuillez saisir un message.</span>
+            <textarea name="message" id="message" rows="6" cols="59" required></textarea>
           </div>
-          <input class="btn-submit button" type="submit" onclick="return validate();" value="Envoyer" aria-label="Send"/>
+          <button class="btn-submit button" type="button" onclick="validate();" value="Envoyer" aria-label="Send">Envoyer</button>
         </form>
         
       </div>
@@ -70,13 +68,13 @@
 
 <!--LIGHTBOX-->
 <dialog class="lightbox" aria-label="image closeup view">
-    <div class="lightbox_content">
+  <div class="lightbox_content">
     <button id="closelightbox" class="lightbox__close">Fermer</button>
     <button class="lightbox__next">Suivant</button>
     <button class="lightbox__prev">Précédent</button>
     <div class="lightboxContainer">
     </div>
-  </div>
+  </div>  
 </dialog>
 
 <!--SORT MENU-->
@@ -117,7 +115,7 @@
 
 
 <script type="module" src="../js/photographer/photographer_script.js"></script>
-<script type="module" src="../js/photographer/lightbox.js"></script>
+<script type="module" src="../js/photographer/lightbox.js" defer></script>
 <script src="../js/photographer/dropdownmenu.js"></script>
 <script  src="../js/modal.js"></script>
 

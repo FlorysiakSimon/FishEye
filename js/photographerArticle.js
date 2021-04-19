@@ -11,6 +11,10 @@ export class Photographer {
         this.index_photo = data.index_photo;
         this.urlID = this.getID();
         this.urlTAG = this.getTAG();
+        this.photographerSelected = document.querySelector(".photographerInfo"); // photographe 
+        this.photographerPrice = document.querySelector(".profileInfoPrice"); //prix
+        this.photographerName = document.querySelector(".modal-Title"); // nom du photographe dans le formulaire
+        this.photographerSection = document.querySelector(".photographer"); // photographes  index.html
     }
 
     getID(){
@@ -25,7 +29,8 @@ export class Photographer {
     }
     
     toHTML() {
-        let article = `<article id="${this.id}" class="photographerItem">
+        
+        this.photographerSection.innerHTML += `<article id="${this.id}" class="photographerItem">
                             <a href="photograher/photographer.html?id=${this.id}" aria-label="${this.name}">
                                 <img class="photographerItemPhoto" src="${this.index_photo}" alt="${this.name}">
                                 <h3 class="photographerItemName">${this.name}</h3>
@@ -37,34 +42,31 @@ export class Photographer {
                                 ${this.tags.map(tag => `<a href="?tags=${tag}"><span aria-label="${tag}" class="photographerItemTag">#${tag}</span></a>`).join('')}
                             </ul>
                         </article>`;
-        return article;
     }
 
     toHTMLID() {
-        let article = `<article id="${this.id}" class="photographerItem">
-                                <div class="photographerItemInfo">
-                                    <h1 class="photographerItemName">${this.name}</h1>            
-                                    <p class="photographerItemCity">${this.city}, ${this.country}</p>
-                                    <p class="photographerItemText">${this.tagline}</p>
-                                    <ul class="photographerItemTaglist" id="taglist_${this.id}">
-                                        ${this.tags.map(tag => `<a href="../index.html?tags=${tag}"><li class="photographerItemTag">#${tag}</li></a>`).join('')}
-                                    </ul>
-                                </div>
-                            </article>
-                            <div class="photographerItemMedia">
-                                    <img class="photographerItemPhoto" src="../${this.index_photo}" alt="${this.name}">
-                            </div>`;
-        return article;
+        this.photographerSelected.innerHTML +=`<article id="${this.id}" class="photographerItem">
+                                                <div class="photographerItemInfo">
+                                                    <h1 class="photographerItemName">${this.name}</h1>            
+                                                    <p class="photographerItemCity">${this.city}, ${this.country}</p>
+                                                    <p class="photographerItemText">${this.tagline}</p>
+                                                    <ul class="photographerItemTaglist" id="taglist_${this.id}">
+                                                        ${this.tags.map(tag => `<a href="../index.html?tags=${tag}"><li class="photographerItemTag">#${tag}</li></a>`).join('')}
+                                                    </ul>
+                                                </div>
+                                                </article>
+                                                <div class="photographerItemMedia">
+                                                        <img class="photographerItemPhoto" src="../${this.index_photo}" alt="${this.name}">
+                                                </div>`;
+       
     }
 
     formName(){
-        let name = `Contactez-moi<br>${this.name}`
-        return name;
+        this.photographerName.innerHTML = `Contactez-moi<br>${this.name}`
     }
 
     footerPrice(){
-        let bottomPrice = `${this.price} € / jour`
-        return bottomPrice;
+        this.photographerPrice.innerHTML = `${this.price} € / jour`
     }
 } 
 

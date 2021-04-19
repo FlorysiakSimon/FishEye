@@ -355,6 +355,7 @@ a {
   color: black;
   font-size: 36px;
   weight: 400;
+  margin: 0;
 }
 .modalValid {
   display: block;
@@ -402,7 +403,7 @@ a {
 }
 
 .content {
-  margin: 2% auto;
+  margin: 0 auto;
   width: 100%;
   max-width: 500px;
   animation-name: modalopen;
@@ -486,6 +487,9 @@ input {
   transform: rotate(-45deg);
 }
 
+textarea {
+  border-radius: 5px;
+}
 /* LIGHTBOX */
 .lightbox {
   display: none;
@@ -501,6 +505,9 @@ input {
 }
 .lightbox_content {
   margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
 }
 .lightboxContainer {
@@ -512,20 +519,12 @@ input {
 .lightboxContainerMedia {
   display: none;
 }
-/*.lightboxContainerMediaVideo,
-.lightboxContainerMediaImg {
-  height: 900px;
-  width: 1000px;
-  border-radius: 5px;
 
-  object-fit: cover;
-}*/
 .lightbox__close {
   background: url(../../img/close.svg) center center / 100% 100%;
   width: 42px;
   height: 42px;
-  position: fixed;
-  left: 77%;
+  right: -7%;
   top: 4%;
 }
 .lightbox__prev,
@@ -540,14 +539,14 @@ input {
 .lightbox__prev {
   transform: rotate(180deg);
   top: 48%;
-  left: 21%;
+  left: -7%;
 }
 .lightbox__next {
   top: 48%;
-  left: 77%;
+  right: -7%;
 }
 .lightbox button {
-  position: fixed;
+  position: absolute;
   opacity: 0.7;
   cursor: pointer;
   transition: opacity 0.3s;
@@ -560,7 +559,12 @@ input {
   height: 800px;
   width: 1000px;
   border-radius: 5px;
-  -o-object-fit: cover;
+  object-fit: cover;
+}
+.lightboxContainerMediaVideo {
+  height: 800px;
+  width: 1000px;
+  border-radius: 5px;
   object-fit: cover;
 }
 .lightboxContainerMediaTitle {
@@ -589,6 +593,8 @@ input {
   }
 }
 
+@media screen and (max-width: 1154px) {
+}
 @media screen and (max-width: 997px) {
   .photographerInfo {
     background: white;
@@ -621,5 +627,11 @@ input {
 @media screen and (max-width: 628px) {
   .sort {
     display: none;
+  }
+  .bground {
+    padding: 0;
+  }
+  .content {
+    max-width: 100%;
   }
 }

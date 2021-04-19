@@ -3,12 +3,9 @@ import {Fabrik} from "../fabrik.js";
 import {openBox,closeBox} from "./lightbox.js";
 
 //DOM
-const photographerSelected = document.querySelector(".photographerInfo"); // section photographer
 const mediaSection = document.querySelector(".media"); //section media
 const photographerLikes = document.querySelector(".profileInfoLike"); //total likes
-const photographerPrice = document.querySelector(".profileInfoPrice"); //prix
 const lightboxContainer = document.querySelector(".lightboxContainer"); //lightbox
-const photographerName = document.querySelector(".modal-Title"); // Form Name
 const option = document.querySelectorAll(".option"); //select menu option
 const fabrik = new Fabrik();
 var articleMedia = undefined ;
@@ -28,13 +25,12 @@ fetch(myRequest)
       const photographers = data.photographers;
       const media = data.media;
      
-
       for (let i in photographers){ //Photographer
         var articlePhotographer = fabrik.createPhotographer(photographers[i]);
         if(articlePhotographer.urlID == articlePhotographer.id){
-        photographerSelected.innerHTML += articlePhotographer.toHTMLID(); // photographer selon ID
-        photographerPrice.innerHTML += articlePhotographer.footerPrice(); //prix selon ID
-        photographerName.innerHTML += articlePhotographer.formName(); // Nom du photographe dans le formulaire
+          articlePhotographer.toHTMLID(); // photographer selon ID
+          articlePhotographer.footerPrice(); //prix selon ID
+          articlePhotographer.formName(); // Nom du photographe dans le formulaire
         }
       }  
       for (let i in media) { //Media
@@ -57,54 +53,44 @@ fetch(myRequest)
     .then(function () {
 
       //DOM
-     // const likeButton = document.querySelectorAll(".profileheart");
       const imgItem = document.querySelectorAll(".mediaItemImg");
       const closelightbox = document.getElementById("closelightbox");
-      //const prev = document.querySelector(".prev");  
-      //const next = document.querySelector(".next");
+      
       //EVENT LISTENER  
-      //likeButton.forEach((like) => like.addEventListener("click", openBox)),
       imgItem.forEach((img) => img.addEventListener("click", openBox)); //openLightBox
       closelightbox.addEventListener("click", closeBox); //closeLightBox
-      //prev.addEventListener("click", plusSlides(-1));
-      //next.addEventListener("click", plusSlides(1))
+      var slides = document.getElementsByClassName("lightboxContainerMedia");
+      console.log(slides)
+
       var slideIndex = 1;
       showSlides(slideIndex);
-      /*function plusSlides(n) {
+
+      function plusSlides(n) {
         showSlides(slideIndex += n);
       }
-      */
-      /*function currentSlide(n) {
-        showSlides(slideIndex = n);
-      }*/
+      
+ 
+
       function showSlides(n) {
         var i;
         var slides = document.getElementsByClassName("lightboxContainerMedia");
-        if (n > slides.length) {slideIndex = 1}
+        if (n > slides.length) {slideIndex = 1}    
         if (n < 1) {slideIndex = slides.length}
         for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
+            slides[i].style.display = "none";  
         }
-        /*for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }*/
-         slides[slideIndex-1].style.display = "block";
-        //dots[slideIndex-1].className += " active";
-        //captionText.innerHTML = dots[slideIndex-1].alt;
+        slides[slideIndex-1].style.display = "block";  
       }
-      
     })
-    /* DROPDOWN */
+
+    /* DROPDOWN SORT ON CLICK*/
    .then(function () {
-      
-    
     option.forEach(el => el.addEventListener('click', event => {
       const value = event.target.getAttribute("value") ;
       articleMedia.sortMedia(listMedia,value);
       // sortMedia(lightboxList,this.value);
-      
-      console.log(listMedia);
-      console.log(lightboxList)
+     // console.log(listMedia);
+     // console.log(lightboxList)
       listMedia.forEach(media => {mediaSection.innerHTML += media.toHTMLGallery()} );
     }));
 

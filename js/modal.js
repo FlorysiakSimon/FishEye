@@ -73,6 +73,9 @@ function validate(){
     console.log('email:' , mail.value);
     document.getElementById('errorMail').style.display="none";
   }
+
+  alert('Votre message a été envoyé');
+  modalbg.style.display = "none";
 }
 
 
