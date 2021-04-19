@@ -5,7 +5,6 @@ import {openBox,closeBox} from "./lightbox.js";
 //DOM
 const mediaSection = document.querySelector(".media"); //section media
 const photographerLikes = document.querySelector(".profileInfoLike"); //total likes
-const lightboxContainer = document.querySelector(".lightboxContainer"); //lightbox
 const option = document.querySelectorAll(".option"); //select menu option
 const fabrik = new Fabrik();
 var articleMedia = undefined ;
@@ -25,7 +24,7 @@ fetch(myRequest)
       const photographers = data.photographers;
       const media = data.media;
      
-      for (let i in photographers){ //Photographer
+      for (let i in photographers){ //Section Photographer
         var articlePhotographer = fabrik.createPhotographer(photographers[i]);
         if(articlePhotographer.urlID == articlePhotographer.id){
           articlePhotographer.toHTMLID(); // photographer selon ID
@@ -33,7 +32,7 @@ fetch(myRequest)
           articlePhotographer.formName(); // Nom du photographe dans le formulaire
         }
       }  
-      for (let i in media) { //Media
+      for (let i in media) { //Section Media
         articleMedia =  fabrik.createMedia(media[i]);
         lightboxGallery = fabrik.createLightbox(media[i]); 
 
@@ -41,7 +40,7 @@ fetch(myRequest)
           listMedia.push(articleMedia); // add media dans le tableau pour effectuer le tri
           lightboxList.push(articleMedia);
           mediaSection.innerHTML += articleMedia.toHTMLGallery(); // gallery
-          lightboxContainer.innerHTML += lightboxGallery.lightboxHTML(); //lightbox 
+          lightboxGallery.lightboxHTML(); //lightbox 
           totalLikes += articleMedia.likes; //calcul total likes
         }
       }
@@ -88,10 +87,7 @@ fetch(myRequest)
     option.forEach(el => el.addEventListener('click', event => {
       const value = event.target.getAttribute("value") ;
       articleMedia.sortMedia(listMedia,value);
-      // sortMedia(lightboxList,this.value);
-     // console.log(listMedia);
-     // console.log(lightboxList)
-      listMedia.forEach(media => {mediaSection.innerHTML += media.toHTMLGallery()} );
+      listMedia.forEach(media => {mediaSection.innerHTML += media.toHTMLGallery(); lightboxGallery.lightboxHTML();} );
     }));
 
 

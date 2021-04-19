@@ -2,7 +2,6 @@ export class Media{
     constructor(data){
         this.media = [];
         this.lightbox =[];
-        this.dropdown = document.querySelectorAll
         this.id = data.id;
         this.photographerId = data.photographerId;
         this.video = data.video;
@@ -16,7 +15,7 @@ export class Media{
         this.mediaImgVid = this.toHTMLGalleryImgVideo();
         this.gallery = this.toHTMLGallery();
         
-        this.mediaSection = document.querySelector(".media"); //section media
+        this.mediaSection = document.querySelector(".media");//section media
       //this.lightboxMedia = this.lightboxMedia();
         
 
@@ -33,7 +32,7 @@ export class Media{
     }
 
     toHTMLGallery(){
-        console.log(this.mediaSection)
+        
         let articleMedia =
         `<article class="mediaItem" data-like="${this.likes}"  id="${this.id}">
            <div class="mediaVideoImg">${this.mediaImgVid}</div>
@@ -44,8 +43,7 @@ export class Media{
                    <i class="fas fa-heart mediaItemLikeHeart" id="like_icon_${this.id}"  aria-label="likes"></i>
                </div>
            </div>
-       </article>`
-      //  console.log(this.addLike());
+       </article>`;
         return articleMedia;
     }
     

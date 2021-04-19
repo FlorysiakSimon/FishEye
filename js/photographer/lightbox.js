@@ -9,9 +9,10 @@ export class Lightbox{
         this.lightboxMedia = this.lightboxMedia();
 
         this.lightbox = document.querySelector('.lightbox');
-		this.lightboxContent = document.querySelector('.lightbox_content');
-		this.slideIndex = '';
-		this.slides = document.getElementsByClassName('lightboxContainerMedia');
+        this.lightboxContent = document.querySelector('.lightbox_content');
+        this.slideIndex = '';
+        this.lightboxContainer = document.querySelector(".lightboxContainer")
+        this.slides = document.getElementsByClassName('lightboxContainerMedia');
     }
     getID(){
         var url_string = window.location.href; 
@@ -20,9 +21,8 @@ export class Lightbox{
     }
 
     lightboxHTML(){
-        let lightboxItem = `<div class="lightboxContainerMedia">${this.lightboxMedia}<p class="lightboxContainerMediaTitle">${this.alt}</p></div>`;
+      this.lightboxContainer.innerHTML += `<div class="lightboxContainerMedia">${this.lightboxMedia}<p class="lightboxContainerMediaTitle">${this.alt}</p></div>`; 
         
-        return lightboxItem;
         
     }
     lightboxMedia(){
@@ -36,32 +36,7 @@ export class Lightbox{
         }
     }
 
-    currentSlide(n) {
-		this.showSlides((this.slideIndex = n));
-	}
-
-	showSlides(n) {
-		this.slides[n].style.display = 'block';
-
-		// Visibility pour pas déplacer l'image quand l'element disparait
-		this.slideIndex == 0
-			? (document.querySelector('.lightbox_prev').style.visibility = 'hidden')
-			: (document.querySelector('.lightbox_prev').style.visibility = 'visible');
-		this.slideIndex == this.app.gallery.length - 1
-			? (document.querySelector('.lightbox__next').style.visibility = 'hidden')
-			: (document.querySelector('.lightbox__next').style.visibility = 'visible');
-	}
-
-	changeSlide(n) {
-		this.resetLightbox();
-		this.showSlides((this.slideIndex += n));
-	}
-
-	resetLightbox() {
-		for (let i = 0; i < this.slides.length; i++) {
-			this.slides[i].style.display = 'none';
-		}
-	}
+   
 
 	openLightbox() {
 		this.lightbox.style.display = 'flex';
@@ -70,7 +45,6 @@ export class Lightbox{
 
 	closeLightbox() {
 		this.lightbox.style.display = 'none';
-		this.resetLightbox();
 	}
     
 }

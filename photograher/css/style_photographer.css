@@ -489,6 +489,7 @@ input {
 
 textarea {
   border-radius: 5px;
+  resize: none;
 }
 /* LIGHTBOX */
 .lightbox {
