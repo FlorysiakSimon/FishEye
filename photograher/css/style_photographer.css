@@ -595,6 +595,34 @@ textarea {
 }
 
 @media screen and (max-width: 1154px) {
+  .lightbox {
+    background-color: white;
+  }
+  .lightboxContainer img {
+    width: 290px;
+    height: 250px;
+  }
+
+  .lightbox__close,
+  .lightbox__prev,
+  .lightbox__next {
+    width: 15px;
+    height: 20px;
+  }
+  .lightbox__next {
+    top: 43%;
+    right: -6%;
+  }
+  .lightbox__prev {
+    top: 43%;
+    left: -6%;
+  }
+  .lightbox__close {
+    top: 22%;
+  }
+  .lightboxContainerMediaTitle {
+    margin-top: 0;
+  }
 }
 @media screen and (max-width: 997px) {
   .photographerInfo {
