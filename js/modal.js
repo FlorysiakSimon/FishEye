@@ -32,6 +32,12 @@ function closeModal(){
 close.addEventListener("click", closeModal);
 btnClose.addEventListener("click", closeModal);
 
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+});
+
 //verify email 
 let mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 function validateEmail(){

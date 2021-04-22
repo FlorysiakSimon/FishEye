@@ -1,6 +1,6 @@
 //IMPORT
 import {Fabrik} from "../fabrik.js";
-import {openBox,closeBox} from "./lightbox.js";
+//import {openBox} from "./lightbox.js";
 
 //DOM
 const mediaSection = document.querySelector(".media"); //section media
@@ -8,10 +8,11 @@ const photographerLikes = document.querySelector(".profileInfoLike"); //total li
 const option = document.querySelectorAll(".option"); //select menu option
 const fabrik = new Fabrik();
 var articleMedia = undefined ;
+var lightboxGallery = undefined;
 var listMedia = [];
 var lightboxList = [];
-var lightboxGallery = undefined;
 var totalLikes = 0;
+
 
 //GET JSON FILE
 let myRequest = new Request("../../data/FishEyeDataFR.json") ;
@@ -44,42 +45,57 @@ fetch(myRequest)
           totalLikes += articleMedia.likes; //calcul total likes
         }
       }
+      
       photographerLikes.innerHTML = totalLikes + ' <i class="fas fa-heart profileheart"   aria-label="likes"></i> '; // display total like
     })
     
     
       /*LIGHTBOX */
     .then(function () {
-
       //DOM
-      const imgItem = document.querySelectorAll(".mediaItemImg");
-      const closelightbox = document.getElementById("closelightbox");
-      
+      //let imgItem = document.querySelectorAll(".mediaItemImg");
+      //const closelightbox = document.getElementById("closelightbox");
+      //const next = document.querySelector(".lightbox__next");
+     // const prev = document.querySelector(".lightbox__prev");
       //EVENT LISTENER  
-      imgItem.forEach((img) => img.addEventListener("click", openBox)); //openLightBox
-      closelightbox.addEventListener("click", closeBox); //closeLightBox
-      var slides = document.getElementsByClassName("lightboxContainerMedia");
-      console.log(slides)
-
-      var slideIndex = 1;
-      showSlides(slideIndex);
+      lightboxGallery.event();
+      articleMedia.event();
+      //imgItem.forEach((img) => img.addEventListener("click", openBox)); //openLightBox
+      /*for(var i=0; i < imgItem.length;i++){
+        imgItem[i].addEventListener("click",currentSlide);
+        imgItem[i].addEventListener("click",openBox);
+      }*/
+      //next.addEventListener('click',plusSlides(1))
+     // prev.addEventListener('click',plusSlides(-1))
 
       function plusSlides(n) {
         showSlides(slideIndex += n);
       }
+      var slideIndex = 1;
+      showSlides(slideIndex);
       
- 
+      
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
 
       function showSlides(n) {
         var i;
         var slides = document.getElementsByClassName("lightboxContainerMedia");
-        if (n > slides.length) {slideIndex = 1}    
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
+        console.log(slides)
+        if (n > slides.length){
+          slideIndex = 1
         }
-        slides[slideIndex-1].style.display = "block";  
+        if (n < 1) {
+          slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex-1].style.display = "block";
       }
+
+      
     })
 
     /* DROPDOWN SORT ON CLICK*/
@@ -88,9 +104,16 @@ fetch(myRequest)
       const value = event.target.getAttribute("value") ;
       articleMedia.sortMedia(listMedia,value);
       listMedia.forEach(media => {mediaSection.innerHTML += media.toHTMLGallery(); lightboxGallery.lightboxHTML();} );
+      
     }));
 
 
+    const like = document.querySelectorAll(".mediaItemLikeHeart");
+    like.forEach(el => el.addEventListener('click', event => {
+      articleMedia.addLike(event);
+      totalLikes++;
+      photographerLikes.innerHTML = totalLikes + ' <i class="fas fa-heart profileheart"   aria-label="likes"></i> '
+    }));
 
   });
     
