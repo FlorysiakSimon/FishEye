@@ -15,11 +15,11 @@ export class Media{
         this.mediaImgVid = this.toHTMLGalleryImgVideo();
         this.gallery = this.toHTMLGallery();
         this.mediaSection = document.querySelector(".media");//section media
-        //this.openBox = this.openBox();
-        
+        //this.imgItem = document.querySelectorAll(".mediaVideoImg");
+
     }
     event(){
-        //this.imgItem.addEventListener('click', this.openBox)
+       
     }
     getID(){
         var url_string = window.location.href; 
@@ -36,7 +36,7 @@ export class Media{
                <div><h4 class="mediaItemTitle mediaItemText">${this.alt}</h4></div>
                <div class="mediaItemInfo">
                    <p class='mediaItemInfoPrice mediaItemText'>${this.price}€<div class="mediaItemLike mediaItemText icon_${this.id}" aria-label="${this.likes} j'aimes">${this.likes}</div>
-                   <i class="fas fa-heart mediaItemLikeHeart" id="" value="${this.likes}" aria-label="likes"></i>
+                   <i class="fas fa-heart mediaItemLikeHeart" id="" value="${this.likes}" onclick="" aria-label="likes"></i>
                </div>
            </div>
        </article>`;
@@ -46,14 +46,12 @@ export class Media{
     
     toHTMLGalleryImgVideo(){
         if (this.image != null){
-            let articleMediaImg = `<img class="mediaItemImg"  src="../../img/${this.photographerId}/${this.image}" aria-label="${this.alt}" alt="${this.alt}" >`;
-            return articleMediaImg;
+            return  `<img class="mediaItemImg" data-index="" data-index-img="${this.id}" src="../../img/${this.photographerId}/${this.image}" aria-label="${this.alt}" alt="${this.alt}" >`;
         }
         if (this.video != null){
-            let articleVideo = `<video class="mediaItemImg"><source src="../../img/${this.photographerId}/${this.video}" aria-label="${this.alt}" type="video/mp4" alt='${this.alt}'></video>`;
-            return articleVideo;
+            return `<video data-index="" data-index-img="${this.id}" class="mediaItemImg"><source src="../../img/${this.photographerId}/${this.video}" aria-label="${this.alt}" type="video/mp4" alt='${this.alt}'></video>`;
         }
-        return "";
+        
     }
     
     sortMedia(media,value) {
@@ -70,22 +68,24 @@ export class Media{
                 case "Title":
                 this.media.sort((a, b) => a.alt.localeCompare(b.alt, 'fr', {ignorePunctuation: true})); //trie par titre
             }
+            this.createHTML();
     }
 
     cleanGallery() {
         document.querySelector(".media").innerHTML=""; //section media
         document.querySelector(".lightboxContainer").innerHTML="" // lightbox
     }
-    openBox() {
-        document.querySelector(".lightbox").style.display = "flex";
-    }
+    
     
     addLike() {
-    /*let tagselect = document.getElementById(`icon_${this.id}`);*/
+        /*let tagselect = document.getElementById(`icon_${this.id}`);*/
         //console.log(document.querySelector(`.icon_${this.id}`))	
-      let value = event.target.getAttribute("value");
+        let value = event.target.getAttribute("value");
+
       value ++;
+        //var test = Element.parentNode.querySelector(".mediaItemLike");
       console.log(value)
+     // test.innerHTML = value;
       
 	}
     

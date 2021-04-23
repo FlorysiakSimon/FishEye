@@ -42,10 +42,12 @@ fetch(myRequest)
           lightboxList.push(articleMedia);
           mediaSection.innerHTML += articleMedia.toHTMLGallery(); // gallery
           lightboxGallery.lightboxHTML(); //lightbox 
+          
           totalLikes += articleMedia.likes; //calcul total likes
+          
         }
       }
-      
+
       photographerLikes.innerHTML = totalLikes + ' <i class="fas fa-heart profileheart"   aria-label="likes"></i> '; // display total like
     })
     
@@ -53,13 +55,21 @@ fetch(myRequest)
       /*LIGHTBOX */
     .then(function () {
       //DOM
-      //let imgItem = document.querySelectorAll(".mediaItemImg");
+      let imgItem = document.querySelectorAll(".mediaVideoImg");
+      console.log(imgItem)
       //const closelightbox = document.getElementById("closelightbox");
       //const next = document.querySelector(".lightbox__next");
-     // const prev = document.querySelector(".lightbox__prev");
+      //const prev = document.querySelector(".lightbox__prev");
+
       //EVENT LISTENER  
       lightboxGallery.event();
       articleMedia.event();
+      /*imgItem.forEach(el => el.addEventListener('click', event => {
+       var current_index = this.dataset.dataIndexImg //
+       console.log(current_index)
+        //console.log(event.target.getAttribute("data-index-img"));
+      }));*/
+      //articleMedia.event();
       //imgItem.forEach((img) => img.addEventListener("click", openBox)); //openLightBox
       /*for(var i=0; i < imgItem.length;i++){
         imgItem[i].addEventListener("click",currentSlide);
@@ -68,7 +78,7 @@ fetch(myRequest)
       //next.addEventListener('click',plusSlides(1))
      // prev.addEventListener('click',plusSlides(-1))
 
-      function plusSlides(n) {
+     /* function plusSlides(n) {
         showSlides(slideIndex += n);
       }
       var slideIndex = 1;
@@ -95,7 +105,7 @@ fetch(myRequest)
         slides[slideIndex-1].style.display = "block";
       }
 
-      
+      */
     })
 
     /* DROPDOWN SORT ON CLICK*/
@@ -104,7 +114,6 @@ fetch(myRequest)
       const value = event.target.getAttribute("value") ;
       articleMedia.sortMedia(listMedia,value);
       listMedia.forEach(media => {mediaSection.innerHTML += media.toHTMLGallery(); lightboxGallery.lightboxHTML();} );
-      
     }));
 
 
