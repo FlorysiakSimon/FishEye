@@ -69,43 +69,14 @@ fetch(myRequest)
        console.log(current_index)
         //console.log(event.target.getAttribute("data-index-img"));
       }));*/
-      //articleMedia.event();
+
+      
       //imgItem.forEach((img) => img.addEventListener("click", openBox)); //openLightBox
       /*for(var i=0; i < imgItem.length;i++){
         imgItem[i].addEventListener("click",currentSlide);
         imgItem[i].addEventListener("click",openBox);
       }*/
-      //next.addEventListener('click',plusSlides(1))
-     // prev.addEventListener('click',plusSlides(-1))
-
-     /* function plusSlides(n) {
-        showSlides(slideIndex += n);
-      }
-      var slideIndex = 1;
-      showSlides(slideIndex);
       
-      
-      function currentSlide(n) {
-        showSlides(slideIndex = n);
-      }
-
-      function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("lightboxContainerMedia");
-        console.log(slides)
-        if (n > slides.length){
-          slideIndex = 1
-        }
-        if (n < 1) {
-          slideIndex = slides.length
-        }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slides[slideIndex-1].style.display = "block";
-      }
-
-      */
     })
 
     /* DROPDOWN SORT ON CLICK*/

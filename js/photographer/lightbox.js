@@ -7,44 +7,46 @@ export class Lightbox{
         this.alt = data.alt;
         this.urlID = this.getID();
         this.lightboxMedia = this.lightboxMedia();
-        //this.showSlides = this.showSlides();
 
-      //  this.slideIndex = '';
+        this.slideIndex = '';
         this.lightboxContent = document.querySelector('.lightbox_content');
         this.lightboxContainer = document.querySelector(".lightboxContainer")
         this.slides = document.getElementsByClassName('lightboxContainerMedia');
         this.closeButton = document.getElementById("closelightbox");
         this.imgItem = document.querySelectorAll(".mediaItemImg");
+        this.next = document.querySelector(".lightbox__next");
+        this.prev = document.querySelector(".lightbox__prev");
     }
 
     event() {
-     
       for (var i = 0; i < this.slides.length; i++) {        
         this.slides[i].dataset.index = [i];
         this.imgItem[i].dataset.index = [i];
       }
 
       this.imgItem.forEach(el => el.addEventListener('click', event => {
-
-        let value = event.target.getAttribute("data-index");
-        console.log(value)
-        //let value2 = this.slides.getAttribute("data-index");
-        //console.log(value2)
+        let index = event.target.getAttribute("data-index");
         this.openBox();
-       
+        this.currentSlide(index)
       }));
-      //this.imgItem.forEach((imgItem) => imgItem.addEventListener("click", currentSlide));
 
-      
       this.closeButton.addEventListener('click', this.closeBox);
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
           this.closeBox();
+          this.cleanLightbox();
         }
-
+        if(e.key === "ArrowRight"){
+          this.plusSlides();
+        }
+        if(e.key === "ArrowLeft"){
+          this.lessSlides();
+        }
       });
       
+      
     }
+
     getID(){
         var url_string = window.location.href; 
         var url = new URL(url_string);
@@ -65,12 +67,34 @@ export class Lightbox{
     closeBox() {
       document.querySelector(".lightbox").style.display = "none";
     }
+
     openBox() {
       document.querySelector(".lightbox").style.display = "flex";
     }
-    test(){
-      console.log('test');
+    
+    currentSlide(n) {
+      this.showSlides((this.slideIndex = n));
     }
+
+    showSlides(n) {
+      this.slides[n].style.display = 'block';
+    }
+
+    plusSlides() {
+      this.cleanLightbox();
+      this.showSlides((this.slideIndex ++));
+    }
+    lessSlides(){
+      this.cleanLightbox();
+      this.showSlides((this.slideIndex --));
+    }
+
+    cleanLightbox() {
+      for (let i = 0; i < this.slides.length; i++) {
+        this.slides[i].style.display = 'none';
+      }
+    }
+    
 }
 
 
