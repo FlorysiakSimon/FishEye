@@ -42,41 +42,15 @@ fetch(myRequest)
           lightboxList.push(articleMedia);
           mediaSection.innerHTML += articleMedia.toHTMLGallery(); // gallery
           lightboxGallery.lightboxHTML(); //lightbox 
-          
+         
           totalLikes += articleMedia.likes; //calcul total likes
           
         }
       }
-
       photographerLikes.innerHTML = totalLikes + ' <i class="fas fa-heart profileheart"   aria-label="likes"></i> '; // display total like
-    })
-    
-    
-      /*LIGHTBOX */
-    .then(function () {
-      //DOM
-      let imgItem = document.querySelectorAll(".mediaVideoImg");
-      console.log(imgItem)
-      //const closelightbox = document.getElementById("closelightbox");
-      //const next = document.querySelector(".lightbox__next");
-      //const prev = document.querySelector(".lightbox__prev");
-
       //EVENT LISTENER  
       lightboxGallery.event();
       articleMedia.event();
-      /*imgItem.forEach(el => el.addEventListener('click', event => {
-       var current_index = this.dataset.dataIndexImg //
-       console.log(current_index)
-        //console.log(event.target.getAttribute("data-index-img"));
-      }));*/
-
-      
-      //imgItem.forEach((img) => img.addEventListener("click", openBox)); //openLightBox
-      /*for(var i=0; i < imgItem.length;i++){
-        imgItem[i].addEventListener("click",currentSlide);
-        imgItem[i].addEventListener("click",openBox);
-      }*/
-      
     })
 
     /* DROPDOWN SORT ON CLICK*/

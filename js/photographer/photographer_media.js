@@ -15,11 +15,15 @@ export class Media{
         this.mediaImgVid = this.toHTMLGalleryImgVideo();
         this.gallery = this.toHTMLGallery();
         this.mediaSection = document.querySelector(".media");//section media
-        //this.imgItem = document.querySelectorAll(".mediaVideoImg");
+        this.slides = document.getElementsByClassName('lightboxContainerMedia');
+        this.imgItem = document.querySelectorAll(".mediaItemImg");
+
 
     }
     event(){
-       
+        for (var i = 0; i < this.imgItem.length; i++) {        
+            this.imgItem[i].dataset.index = [i];
+          }
     }
     getID(){
         var url_string = window.location.href; 
@@ -35,8 +39,8 @@ export class Media{
            <div class="mediaItemText">
                <div><h4 class="mediaItemTitle mediaItemText">${this.alt}</h4></div>
                <div class="mediaItemInfo">
-                   <p class='mediaItemInfoPrice mediaItemText'>${this.price}€<div class="mediaItemLike mediaItemText icon_${this.id}" aria-label="${this.likes} j'aimes">${this.likes}</div>
-                   <i class="fas fa-heart mediaItemLikeHeart" id="" value="${this.likes}" onclick="" aria-label="likes"></i>
+                   <p class='mediaItemInfoPrice mediaItemText'>${this.price}€<div id="like_${this.id}" class="mediaItemLike mediaItemText icon_${this.id}" aria-label="${this.likes} j'aimes">${this.likes}</div>
+                   <i class="fas fa-heart mediaItemLikeHeart" id="icon_${this.id}" value="${this.likes}" onclick="" aria-label="likes"></i>
                </div>
            </div>
        </article>`;
@@ -46,10 +50,10 @@ export class Media{
     
     toHTMLGalleryImgVideo(){
         if (this.image != null){
-            return  `<img class="mediaItemImg" data-index="" data-index-img="${this.id}" src="../../img/${this.photographerId}/${this.image}" aria-label="${this.alt}" alt="${this.alt}" >`;
+            return  `<img class="mediaItemImg"  src="../../img/${this.photographerId}/${this.image}" aria-label="${this.alt}" alt="${this.alt}" >`;
         }
         if (this.video != null){
-            return `<video data-index="" data-index-img="${this.id}" class="mediaItemImg"><source src="../../img/${this.photographerId}/${this.video}" aria-label="${this.alt}" type="video/mp4" alt='${this.alt}'></video>`;
+            return `<video class="mediaItemImg"><source src="../../img/${this.photographerId}/${this.video}" aria-label="${this.alt}" type="video/mp4" alt='${this.alt}'></video>`;
         }
         
     }
@@ -68,7 +72,6 @@ export class Media{
                 case "Title":
                 this.media.sort((a, b) => a.alt.localeCompare(b.alt, 'fr', {ignorePunctuation: true})); //trie par titre
             }
-            this.createHTML();
     }
 
     cleanGallery() {
@@ -81,10 +84,9 @@ export class Media{
         /*let tagselect = document.getElementById(`icon_${this.id}`);*/
         //console.log(document.querySelector(`.icon_${this.id}`))	
         let value = event.target.getAttribute("value");
-
-      value ++;
+        value ++;
         //var test = Element.parentNode.querySelector(".mediaItemLike");
-      console.log(value)
+        console.log(value)
      // test.innerHTML = value;
       
 	}

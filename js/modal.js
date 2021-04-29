@@ -9,8 +9,6 @@ const firstName = document.getElementById("first"); // prenom
 const lastName = document.getElementById("last"); // nom
 const mail = document.getElementById("email");// mail
 const btnSubmit = document.querySelector("btn-submit");
-//const formValid = document.querySelector(".formValid"); // modal form valid
-
 
 // launch modal event
 //modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -28,10 +26,11 @@ function closeModal(){
   modalbg.style.display = "none";
 }
 
+
+
 // close modal event
 close.addEventListener("click", closeModal);
 btnClose.addEventListener("click", closeModal);
-
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeModal();
