@@ -39,8 +39,8 @@ export class Media{
            <div class="mediaItemText">
                <div><h4 class="mediaItemTitle mediaItemText">${this.alt}</h4></div>
                <div class="mediaItemInfo">
-                   <p class='mediaItemInfoPrice mediaItemText'>${this.price}€<div id="like_${this.id}" class="mediaItemLike mediaItemText icon_${this.id}" aria-label="${this.likes} j'aimes">${this.likes}</div>
-                   <i class="fas fa-heart mediaItemLikeHeart" id="icon_${this.id}" value="${this.likes}" onclick="" aria-label="likes"></i>
+                   <p class='mediaItemInfoPrice mediaItemText'>${this.price}€<div id="like_${this.id}" class="mediaItemLike mediaItemText" aria-label="${this.likes} j'aimes">${this.likes}</div>
+                   <i class="fas fa-heart mediaItemLikeHeart" id="${this.id}" value="${this.likes}" onclick="" aria-label="likes"></i>
                </div>
            </div>
        </article>`;
@@ -81,13 +81,14 @@ export class Media{
     
     
     addLike() {
-        /*let tagselect = document.getElementById(`icon_${this.id}`);*/
-        //console.log(document.querySelector(`.icon_${this.id}`))	
+        let id = event.target.getAttribute("id");
+        console.log(id)
         let value = event.target.getAttribute("value");
         value ++;
-        //var test = Element.parentNode.querySelector(".mediaItemLike");
+        const liked = document.getElementById(`like_`+id);
+        liked.innerHTML = value;
+        console.log(liked)
         console.log(value)
-     // test.innerHTML = value;
       
 	}
     
