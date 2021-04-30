@@ -23,27 +23,35 @@ export class Lightbox{
       this.slides[i].dataset.index = [i];
     }
 
+    this.next.addEventListener('click',(e) => {
+      this.plusSlides(e);
+    });
+    this.prev.addEventListener('click',(e) => {
+      this.lessSlides(e);
+    });
+
     this.imgItem.forEach(el => el.addEventListener('click', event => {
       let n = event.target.getAttribute("data-index");
       this.openBox();
       this.currentSlide(n)
-      console.log(this.slideIndex)
     }));
 
-    this.closeButton.addEventListener('click', this.closeBox);
-
+    this.closeButton.addEventListener('click', (e) => {
+      this.closeBox(e);
+    });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         this.closeBox();
       }
       if(e.key === "ArrowRight" && this.next.style.visibility == 'visible'){
         this.plusSlides();
-        //this.changeSlide()
       }
       if(e.key === "ArrowLeft" && this.prev.style.visibility == 'visible'){
         this.lessSlides();
       }
     });
+    
+
   }
 
   getID(){
@@ -65,7 +73,7 @@ export class Lightbox{
   
   closeBox() {
     document.querySelector(".lightbox").style.display = "none";
-    cleanLightbox();
+    this.cleanLightbox();
   }
 
   openBox() {
@@ -88,28 +96,20 @@ export class Lightbox{
   }
 
   plusSlides() {
-    cleanLightbox();
+    this.cleanLightbox();
     this.slideIndex++;
     this.showSlides((this.slideIndex));
   }
   lessSlides(){
-    cleanLightbox();
+    this.cleanLightbox();
     this.slideIndex--;
     this.showSlides((this.slideIndex));
   }
 
-  /*cleanLightbox() {
+  cleanLightbox() {
     for (let i = 0; i < this.slides.length; i++) {
       this.slides[i].style.display = 'none';
     }
-  }*/
-  
-}
-
-
-function cleanLightbox() {
-  const slides = document.getElementsByClassName('lightboxContainerMedia');
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = 'none';
   }
+  
 }

@@ -33,7 +33,7 @@ export class Photographer {
         this.photographerSection.innerHTML += `<article id="${this.id}" class="photographerItem">
                             <a href="photograher/photographer.html?id=${this.id}" aria-label="${this.name}">
                                 <img class="photographerItemPhoto" src="${this.index_photo}" alt="${this.name}">
-                                <h3 class="photographerItemName">${this.name}</h3>
+                                <h2 class="photographerItemName">${this.name}</h2>
                             </a>
                             <p class="photographerItemCity">${this.city}, ${this.country}</p>
                             <p class="photographerItemText">${this.tagline}</p>
@@ -47,7 +47,7 @@ export class Photographer {
     toHTMLID() {
         this.photographerSelected.innerHTML +=`<article id="${this.id}" class="photographerItem">
                                                 <div class="photographerItemInfo">
-                                                    <h1 class="photographerItemName">${this.name}</h1>            
+                                                    <h2 class="photographerItemName">${this.name}</h2>            
                                                     <p class="photographerItemCity">${this.city}, ${this.country}</p>
                                                     <p class="photographerItemText">${this.tagline}</p>
                                                     <ul class="photographerItemTaglist" id="taglist_${this.id}">
@@ -56,7 +56,7 @@ export class Photographer {
                                                 </div>
                                                 </article>
                                                 <div class="photographerItemMedia">
-                                                        <img class="photographerItemPhoto" src="../${this.index_photo}" alt="${this.name}">
+                                                        <img class="photographerItemPhoto" src="../${this.index_photo}" alt="${this.name}" aria-label="${this.name}">
                                                 </div>`;
        
     }

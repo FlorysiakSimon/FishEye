@@ -41,6 +41,7 @@ export class Media{
                <div class="mediaItemInfo">
                    <p class='mediaItemInfoPrice mediaItemText'>${this.price}€<div id="like_${this.id}" class="mediaItemLike mediaItemText" aria-label="${this.likes} j'aimes">${this.likes}</div>
                    <i tabindex="0" class="fas fa-heart mediaItemLikeHeart" id="${this.id}" value="${this.likes}" aria-label="likes"></i>
+                   <span class="sr-only">click heart to like</span>
                </div>
            </div>
        </article>`;

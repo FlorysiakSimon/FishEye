@@ -3,6 +3,11 @@ const dropdown = document.querySelector(".wrapper");
 dropdown.addEventListener('click', function () {
         this.querySelector('.selectMenu').classList.toggle('open');
 });
+dropdown.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+       document.querySelector('.selectMenu').classList.toggle('open');
+    }
+});
 
 for (const option of document.querySelectorAll(".option")) {
     option.addEventListener('click', function () {
