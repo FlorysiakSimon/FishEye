@@ -15,7 +15,8 @@ var totalLikes = 0;
 
 
 //GET JSON FILE
-let myRequest = new Request("../../data/FishEyeDataFR.json") ;
+//("../../data/FishEyeDataFR.json") 
+let myRequest = new Request("./../../data/FishEyeDataFR.json") ;
 fetch(myRequest)
     .then(function(resp){
         return resp.json();
@@ -59,6 +60,7 @@ fetch(myRequest)
       const value = event.target.getAttribute("value") ;
       articleMedia.sortMedia(listMedia,value);
       listMedia.forEach(media => {mediaSection.innerHTML += media.toHTMLGallery(); lightboxGallery.lightboxHTML();} );
+      lightboxGallery.event();
     }));
 
 

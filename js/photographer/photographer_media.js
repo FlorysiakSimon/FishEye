@@ -34,13 +34,13 @@ export class Media{
     toHTMLGallery(){
         
         let articleMedia =
-        `<article class="mediaItem" data-like="${this.likes}" >
+        `<article class="mediaItem">
            <div class="mediaVideoImg">${this.mediaImgVid}</div>
            <div class="mediaItemText">
                <div><h4 class="mediaItemTitle mediaItemText">${this.alt}</h4></div>
                <div class="mediaItemInfo">
                    <p class='mediaItemInfoPrice mediaItemText'>${this.price}€<div id="like_${this.id}" class="mediaItemLike mediaItemText" aria-label="${this.likes} j'aimes">${this.likes}</div>
-                   <i tabindex="0" class="fas fa-heart mediaItemLikeHeart" id="${this.id}" value="${this.likes}" onclick="" aria-label="likes"></i>
+                   <i tabindex="0" class="fas fa-heart mediaItemLikeHeart" id="${this.id}" value="${this.likes}" aria-label="likes"></i>
                </div>
            </div>
        </article>`;
@@ -72,6 +72,7 @@ export class Media{
                 case "Title":
                 this.media.sort((a, b) => a.alt.localeCompare(b.alt, 'fr', {ignorePunctuation: true})); //trie par titre
             }
+        this.event();
     }
 
     cleanGallery() {
