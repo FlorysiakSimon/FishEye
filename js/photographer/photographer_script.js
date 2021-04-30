@@ -15,7 +15,6 @@ var totalLikes = 0;
 
 
 //GET JSON FILE
-//("../../data/FishEyeDataFR.json") 
 let myRequest = new Request("./../../data/FishEyeDataFR.json") ;
 fetch(myRequest)
     .then(function(resp){

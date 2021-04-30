@@ -27,9 +27,9 @@ export class Lightbox{
       let n = event.target.getAttribute("data-index");
       this.openBox();
       this.currentSlide(n)
+      console.log(this.slideIndex)
     }));
 
-    //console.log(this.closeButton)
     this.closeButton.addEventListener('click', this.closeBox);
 
     document.addEventListener('keydown', (e) => {
@@ -38,13 +38,12 @@ export class Lightbox{
       }
       if(e.key === "ArrowRight" && this.next.style.visibility == 'visible'){
         this.plusSlides();
+        //this.changeSlide()
       }
       if(e.key === "ArrowLeft" && this.prev.style.visibility == 'visible'){
         this.lessSlides();
       }
     });
-    
-    
   }
 
   getID(){
@@ -79,23 +78,24 @@ export class Lightbox{
 
   showSlides(n) {
     this.slides[n].style.display = 'block';
-
 		this.slideIndex == 0
 			? (this.prev.style.visibility = 'hidden')
 			: (this.prev.style.visibility = 'visible');
-    this.slideIndex > this.imgItem.length -1
+    this.slideIndex > this.slides.length -2
       ? (this.next.style.visibility = 'hidden')
       : (this.next.style.visibility = 'visible');
-    
+
   }
 
   plusSlides() {
     cleanLightbox();
-    this.showSlides((this.slideIndex++));
+    this.slideIndex++;
+    this.showSlides((this.slideIndex));
   }
   lessSlides(){
     cleanLightbox();
-    this.showSlides((this.slideIndex--));
+    this.slideIndex--;
+    this.showSlides((this.slideIndex));
   }
 
   /*cleanLightbox() {
@@ -109,7 +109,6 @@ export class Lightbox{
 
 function cleanLightbox() {
   const slides = document.getElementsByClassName('lightboxContainerMedia');
-  console.log(slides)
   for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = 'none';
   }

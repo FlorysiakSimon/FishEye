@@ -50,10 +50,10 @@ export class Media{
     
     toHTMLGalleryImgVideo(){
         if (this.image != null){
-            return  `<img class="mediaItemImg" tabindex="0" src="../../img/${this.photographerId}/${this.image}" aria-label="${this.alt}" alt="${this.alt}" >`;
+            return  `<img class="mediaItemImg"  src="../../img/${this.photographerId}/${this.image}" aria-label="${this.alt}" alt="${this.alt}" tabindex="0">`;
         }
         if (this.video != null){
-            return `<video tabindex="0" class="mediaItemImg"><source src="../../img/${this.photographerId}/${this.video}" aria-label="${this.alt}" type="video/mp4" alt='${this.alt}'></video>`;
+            return `<video class="mediaItemImg" tabindex="0"><source src="../../img/${this.photographerId}/${this.video}" aria-label="${this.alt}" type="video/mp4" alt='${this.alt}'></video>`;
         }
         
     }

@@ -1,6 +1,6 @@
 @font-face {
   font-family: "DMSansRegular";
-  src: url("../../font/DMSans-Regular.ttf") format("truetype");
+  src: url("./../../font/DMSans-Regular.ttf") format("truetype");
 }
 
 * {
