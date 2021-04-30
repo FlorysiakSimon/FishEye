@@ -65,6 +65,7 @@ fetch(myRequest)
     const like = document.querySelectorAll(".mediaItemLikeHeart");
     like.forEach(el => el.addEventListener('click', event => {
       articleMedia.addLike(event);
+      
       totalLikes++;
       photographerLikes.innerHTML = totalLikes + ' <i class="fas fa-heart profileheart"   aria-label="likes"></i> '
     }));

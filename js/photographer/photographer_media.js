@@ -34,13 +34,13 @@ export class Media{
     toHTMLGallery(){
         
         let articleMedia =
-        `<article class="mediaItem" data-like="${this.likes}"  id="${this.id}">
+        `<article class="mediaItem" data-like="${this.likes}" >
            <div class="mediaVideoImg">${this.mediaImgVid}</div>
            <div class="mediaItemText">
                <div><h4 class="mediaItemTitle mediaItemText">${this.alt}</h4></div>
                <div class="mediaItemInfo">
                    <p class='mediaItemInfoPrice mediaItemText'>${this.price}€<div id="like_${this.id}" class="mediaItemLike mediaItemText" aria-label="${this.likes} j'aimes">${this.likes}</div>
-                   <i class="fas fa-heart mediaItemLikeHeart" id="${this.id}" value="${this.likes}" onclick="" aria-label="likes"></i>
+                   <i tabindex="0" class="fas fa-heart mediaItemLikeHeart" id="${this.id}" value="${this.likes}" onclick="" aria-label="likes"></i>
                </div>
            </div>
        </article>`;
@@ -50,10 +50,10 @@ export class Media{
     
     toHTMLGalleryImgVideo(){
         if (this.image != null){
-            return  `<img class="mediaItemImg"  src="../../img/${this.photographerId}/${this.image}" aria-label="${this.alt}" alt="${this.alt}" >`;
+            return  `<img class="mediaItemImg" tabindex="0" src="../../img/${this.photographerId}/${this.image}" aria-label="${this.alt}" alt="${this.alt}" >`;
         }
         if (this.video != null){
-            return `<video class="mediaItemImg"><source src="../../img/${this.photographerId}/${this.video}" aria-label="${this.alt}" type="video/mp4" alt='${this.alt}'></video>`;
+            return `<video tabindex="0" class="mediaItemImg"><source src="../../img/${this.photographerId}/${this.video}" aria-label="${this.alt}" type="video/mp4" alt='${this.alt}'></video>`;
         }
         
     }
@@ -80,15 +80,15 @@ export class Media{
     }
     
     
-    addLike() {
+    addLike(event) {
         let id = event.target.getAttribute("id");
-        console.log(id)
         let value = event.target.getAttribute("value");
-        value ++;
         const liked = document.getElementById(`like_`+id);
+        const el = document.getElementById(id)
+        
+        value ++;
+        el.setAttribute('value', value);
         liked.innerHTML = value;
-        console.log(liked)
-        console.log(value)
       
 	}
     

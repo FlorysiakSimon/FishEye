@@ -29,7 +29,7 @@ export class Lightbox{
       this.currentSlide(n)
     }));
 
-    console.log(this.closeButton)
+    //console.log(this.closeButton)
     this.closeButton.addEventListener('click', this.closeBox);
 
     document.addEventListener('keydown', (e) => {
@@ -66,7 +66,7 @@ export class Lightbox{
   
   closeBox() {
     document.querySelector(".lightbox").style.display = "none";
-    this.cleanLightbox();
+    cleanLightbox();
   }
 
   openBox() {
@@ -90,20 +90,27 @@ export class Lightbox{
   }
 
   plusSlides() {
-    this.cleanLightbox();
+    cleanLightbox();
     this.showSlides((this.slideIndex++));
   }
   lessSlides(){
-    this.cleanLightbox();
+    cleanLightbox();
     this.showSlides((this.slideIndex--));
   }
 
-  cleanLightbox() {
+  /*cleanLightbox() {
     for (let i = 0; i < this.slides.length; i++) {
       this.slides[i].style.display = 'none';
     }
-  }
+  }*/
   
 }
 
 
+function cleanLightbox() {
+  const slides = document.getElementsByClassName('lightboxContainerMedia');
+  console.log(slides)
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
+  }
+}
