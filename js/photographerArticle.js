@@ -32,7 +32,7 @@ export class Photographer {
         
         this.photographerSection.innerHTML += `<article id="${this.id}" class="photographerItem">
                             <a href="photograher/photographer.html?id=${this.id}" aria-label="${this.name}">
-                                <img class="photographerItemPhoto" src="${this.index_photo}" alt="${this.name}">
+                                <img class="photographerItemPhoto" src="img/Photographers ID Photos/${this.portrait}" alt="${this.name}">
                                 <h2 class="photographerItemName">${this.name}</h2>
                             </a>
                             <p class="photographerItemCity">${this.city}, ${this.country}</p>
@@ -56,7 +56,7 @@ export class Photographer {
                                                 </div>
                                                 </article>
                                                 <div class="photographerItemMedia">
-                                                        <img class="photographerItemPhoto" src="../${this.index_photo}" alt="${this.name}" aria-label="${this.name}">
+                                                        <img class="photographerItemPhoto" src="../img/Photographers ID Photos/${this.portrait}" alt="${this.name}" aria-label="${this.name}">
                                                 </div>`;
        
     }

@@ -8,10 +8,10 @@ const btnClose = document.querySelector(".btn-close");
 const firstName = document.getElementById("first"); // prenom
 const lastName = document.getElementById("last"); // nom
 const mail = document.getElementById("email");// mail
+const message = document.getElementById("message");
 const btnSubmit = document.querySelector("btn-submit");
 
 // launch modal event
-//modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 modalBtn.addEventListener("click", launchModal);
 
 
@@ -20,7 +20,6 @@ function launchModal() {
   document.querySelector(".bground").style.display = "block";
 }
 
-//console.log(launchModal());
 //close modal form
 function closeModal(){
   modalbg.style.display = "none";
@@ -78,8 +77,9 @@ function validate(){
     console.log('email:' , mail.value);
     document.getElementById('errorMail').style.display="none";
   }
-
+  
   alert('Votre message a été envoyé');
+  console.log('message:', message.value);
   modalbg.style.display = "none";
 }
 

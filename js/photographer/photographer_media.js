@@ -14,16 +14,19 @@ export class Media{
         this.urlID = this.getID();
         this.mediaImgVid = this.toHTMLGalleryImgVideo();
         this.gallery = this.toHTMLGallery();
-        this.mediaSection = document.querySelector(".media");//section media
+        this.lightboxMedia = this.lightboxMedia();
+
+        this.mediaSection = document.getElementById("media");//section media
         this.slides = document.getElementsByClassName('lightboxContainerMedia');
-        this.imgItem = document.querySelectorAll(".mediaItemImg");
+        this.imgItem = document.getElementsByClassName("mediaItemImg");
+        this.lightboxContainer = document.querySelector(".lightboxContainer")
 
 
     }
     event(){
         for (var i = 0; i < this.imgItem.length; i++) {        
             this.imgItem[i].dataset.index = [i];
-          }
+          } 
     }
     getID(){
         var url_string = window.location.href; 
@@ -32,9 +35,8 @@ export class Media{
     }
     
     toHTMLGallery(){
-        
-        let articleMedia =
-        `<article class="mediaItem">
+      
+       return `<article class="mediaItem">
            <div class="mediaVideoImg">${this.mediaImgVid}</div>
            <div class="mediaItemText">
                <div><h4 class="mediaItemTitle mediaItemText">${this.alt}</h4></div>
@@ -46,17 +48,28 @@ export class Media{
            </div>
        </article>`;
        
-        return articleMedia;
     }
     
     toHTMLGalleryImgVideo(){
         if (this.image != null){
-            return  `<img class="mediaItemImg"  src="../../img/${this.photographerId}/${this.image}" aria-label="${this.alt}" alt="${this.alt}" tabindex="0">`;
+            return  `<img data-index="" class="mediaItemImg"  src="../../img/${this.photographerId}/${this.image}" aria-label="${this.alt}" alt="${this.alt}" tabindex="0">`;
         }
         if (this.video != null){
-            return `<video class="mediaItemImg" tabindex="0"><source src="../../img/${this.photographerId}/${this.video}" aria-label="${this.alt}" type="video/mp4" alt='${this.alt}'></video>`;
+            return `<video data-index="" class="mediaItemImg" tabindex="0"><source src="../../img/${this.photographerId}/${this.video}" aria-label="${this.alt}" type="video/mp4" alt='${this.alt}'></video>`;
         }
         
+    }
+
+    lightboxHTML(){
+        this.lightboxContainer.innerHTML += `<div class="lightboxContainerMedia">${this.lightboxMedia}<p class="lightboxContainerMediaTitle">${this.alt}</p></div>`; 
+    }
+    lightboxMedia(){
+          if (this.image != null){
+            return `<img class="lightboxContainerMediaImg" src="../../img/${this.photographerId}/${this.image}" aria-label="${this.alt}" alt="${this.alt}" >`;
+          }
+          if (this.video != null){
+            return `<video controls class="lightboxContainerMediaImg lightboxContainerMediaVideo"><source src="../../img/${this.photographerId}/${this.video}" aria-label="${this.alt}" type="video/mp4" alt='${this.alt}'></video>`;   
+          }
     }
     
     sortMedia(media,value) {
@@ -73,7 +86,6 @@ export class Media{
                 case "Title":
                 this.media.sort((a, b) => a.alt.localeCompare(b.alt, 'fr', {ignorePunctuation: true})); //trie par titre
             }
-        this.event();
     }
 
     cleanGallery() {

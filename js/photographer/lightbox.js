@@ -1,12 +1,13 @@
 export class Lightbox{
   constructor(data){
+    
       this.id = data.id;
       this.photographerId = data.photographerId;
       this.video = data.video;
       this.image = data.image;
       this.alt = data.alt;
       this.urlID = this.getID();
-      this.lightboxMedia = this.lightboxMedia();
+     // this.lightboxMedia = this.lightboxMedia();
 
       this.slideIndex = '';
       this.lightboxContent = document.querySelector('.lightbox_content');
@@ -21,24 +22,28 @@ export class Lightbox{
   event() {
     for (var i = 0; i < this.slides.length; i++) {        
       this.slides[i].dataset.index = [i];
+      //this.imgItem[i].dataset.index = [i];
     }
 
-    this.next.addEventListener('click',(e) => {
-      this.plusSlides(e);
+    this.next.addEventListener('click',() => {
+      this.plusSlides();
     });
-    this.prev.addEventListener('click',(e) => {
-      this.lessSlides(e);
+    this.prev.addEventListener('click',() => {
+      this.lessSlides();
+    });
+    this.closeButton.addEventListener('click', () => {
+      this.closeBox();
     });
 
+    //add event lightbox sur les img
     this.imgItem.forEach(el => el.addEventListener('click', event => {
       let n = event.target.getAttribute("data-index");
       this.openBox();
       this.currentSlide(n)
     }));
-
-    this.closeButton.addEventListener('click', (e) => {
-      this.closeBox(e);
-    });
+    
+  
+    //keypress event
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         this.closeBox();
@@ -59,7 +64,7 @@ export class Lightbox{
       var url = new URL(url_string);
       return url.searchParams.get("id"); // get id from url
   }
-  lightboxHTML(){
+  /*lightboxHTML(){
     this.lightboxContainer.innerHTML += `<div class="lightboxContainerMedia">${this.lightboxMedia}<p class="lightboxContainerMediaTitle">${this.alt}</p></div>`; 
   }
   lightboxMedia(){
@@ -69,7 +74,7 @@ export class Lightbox{
       if (this.video != null){
         return `<video controls class="lightboxContainerMediaImg lightboxContainerMediaVideo"><source src="../../img/${this.photographerId}/${this.video}" aria-label="${this.alt}" type="video/mp4" alt='${this.alt}'></video>`;   
       }
-  }
+  }*/
   
   closeBox() {
     document.querySelector(".lightbox").style.display = "none";
