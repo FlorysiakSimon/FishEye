@@ -11,14 +11,14 @@
 </head>
 <body>
 <header>
-    <a href="../index.html"><img class="headerLogo" src="../img/logo.png" alt="Fisheye Home page" aria-label="Fisheye Home page"></a>
+    <a href="../index.html" tabindex="0"><img class="headerLogo" src="../img/logo.png" alt="Fisheye Home page" aria-label="Fisheye Home page"></a>
 </header>
 <main>
 
 <!--INFO PHOTOGRAPHER-->
 <section class="photographerInfo">   
   <div class="photographerInfoContact">
-    <button id="contactButton" class="btn-signup modal-btn" onclick="launchModal();" aria-label="Contact Me">Contactez-moi</button>
+    <button tabindex="0" id="contactButton" class="btn-signup modal-btn" onclick="launchModal();" aria-label="Contact Me">Contactez-moi</button>
   </div> 
 </section>
 
@@ -85,12 +85,12 @@
   <div class="container">
     <div class="wrapper">
         <div class="selectMenu" tabindex="0">
-            <div class="selectMenuTrigger" role="button" aria-haspopup="listbox"><span>Popularité</span>
+            <div class="selectMenuTrigger" role="button" aria-haspopup="listbox"><span>Date</span>
                 <div class="arrow" aria-label="afficher la liste des tris"></div>
             </div>
             <div class="selectMenuOptions" role="listbox">
-                <button class="option selected" aria-label="Trier par popularité" value="Popularity">Popularité</button>
-                <button class="option" role="listbox" aria-label="Trier par date" value="Date">Date</button>
+                <button class="option " aria-label="Trier par popularité" value="Popularity">Popularité</button>
+                <button class="option selected" role="listbox" aria-label="Trier par date" value="Date">Date</button>
                 <button class="option" role="listbox" aria-label="Trier par titre" value="Title">Titre</button>
             </div>
         </div>

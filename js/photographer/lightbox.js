@@ -41,6 +41,13 @@ export class Lightbox{
       this.openBox();
       this.currentSlide(n)
     }));
+    this.imgItem.forEach(el => el.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter'){
+      let n = event.target.getAttribute("data-index");
+      this.openBox();
+      this.currentSlide(n)
+      }
+    }));
     
   
     //keypress event
@@ -64,17 +71,7 @@ export class Lightbox{
       var url = new URL(url_string);
       return url.searchParams.get("id"); // get id from url
   }
-  /*lightboxHTML(){
-    this.lightboxContainer.innerHTML += `<div class="lightboxContainerMedia">${this.lightboxMedia}<p class="lightboxContainerMediaTitle">${this.alt}</p></div>`; 
-  }
-  lightboxMedia(){
-      if (this.image != null){
-        return `<img class="lightboxContainerMediaImg" src="../../img/${this.photographerId}/${this.image}" aria-label="${this.alt}" alt="${this.alt}" >`;
-      }
-      if (this.video != null){
-        return `<video controls class="lightboxContainerMediaImg lightboxContainerMediaVideo"><source src="../../img/${this.photographerId}/${this.video}" aria-label="${this.alt}" type="video/mp4" alt='${this.alt}'></video>`;   
-      }
-  }*/
+  
   
   closeBox() {
     document.querySelector(".lightbox").style.display = "none";

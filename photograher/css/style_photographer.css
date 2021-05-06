@@ -189,7 +189,9 @@ a {
   background: #901c1c;
   cursor: pointer;
 }
-
+.selectMenuTrigger span {
+  margin-left: 5px;
+}
 .selectMenuOptions {
   position: absolute;
   display: block;
@@ -301,6 +303,7 @@ a {
   width: 100%;
   height: 300px;
   object-fit: cover;
+  border-radius: 5px;
 }
 .mediaItemText {
   display: flex;
@@ -500,7 +503,7 @@ textarea {
   position: fixed;
   left: 0;
   top: 0;
-  background-color: rgba(196, 196, 196, 0.6);
+  background-color: white;
   border: none;
   padding: 0;
 }

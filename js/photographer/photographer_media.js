@@ -65,10 +65,10 @@ export class Media{
     }
     lightboxMedia(){
           if (this.image != null){
-            return `<img class="lightboxContainerMediaImg" src="../../img/${this.photographerId}/${this.image}" aria-label="${this.alt}" alt="${this.alt}" >`;
+            return `<img tabindex="0" class="lightboxContainerMediaImg" src="../../img/${this.photographerId}/${this.image}" aria-label="${this.alt}" alt="${this.alt}" >`;
           }
           if (this.video != null){
-            return `<video controls class="lightboxContainerMediaImg lightboxContainerMediaVideo"><source src="../../img/${this.photographerId}/${this.video}" aria-label="${this.alt}" type="video/mp4" alt='${this.alt}'></video>`;   
+            return `<video tabindex="0" controls class="lightboxContainerMediaImg lightboxContainerMediaVideo"><source src="../../img/${this.photographerId}/${this.video}" aria-label="${this.alt}" type="video/mp4" alt='${this.alt}'></video>`;   
           }
     }
     
@@ -96,13 +96,13 @@ export class Media{
     
     addLike(event) {
         let id = event.target.getAttribute("id");
-        let value = event.target.getAttribute("value");
+        let val = event.target.getAttribute("value");
         const liked = document.getElementById(`like_`+id);
         const el = document.getElementById(id)
         
-        value ++;
-        el.setAttribute('value', value);
-        liked.innerHTML = value;
+        val ++;
+        el.setAttribute('value', val);
+        liked.innerHTML = val;
       
 	}
     
