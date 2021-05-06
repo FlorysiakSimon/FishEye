@@ -2,7 +2,9 @@
   font-family: "DMSansRegular";
   src: url("./../../Font/DMSans-Regular.ttf") format("truetype");
 }
-
+body {
+  margin: 0;
+}
 * {
   font-family: "DMSansRegular";
 }
@@ -17,6 +19,7 @@ header,
 main {
   max-width: 90%;
   margin: auto;
+  margin-top: 1em;
 }
 a {
   text-decoration: none;
@@ -601,7 +604,8 @@ textarea {
   .lightbox {
     background-color: white;
   }
-  .lightboxContainer img {
+  .lightboxContainer img,
+  .lightboxContainer video {
     width: 290px;
     height: 250px;
   }
@@ -631,6 +635,7 @@ textarea {
     background: white;
     margin: 0;
   }
+
   .photographerItemPhoto {
     width: 100px;
     height: 100px;
@@ -664,5 +669,8 @@ textarea {
   }
   .content {
     max-width: 100%;
+  }
+  .photographerItemTaglist {
+    flex-wrap: wrap;
   }
 }

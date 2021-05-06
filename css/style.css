@@ -141,6 +141,7 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
   margin-top: 5px;
 }
 
@@ -317,7 +318,12 @@ nav {
   left: 5px;
   transform: rotate(45deg);
 }
-
+@media screen and (max-width: 1312px) {
+  nav {
+    flex-wrap: wrap;
+    margin-top: 1em;
+  }
+}
 @media screen and (max-width: 1220px) {
   .headerLogo {
     width: 120px;
@@ -326,7 +332,6 @@ nav {
   }
   .mainTitle {
     font-size: 20px;
-    top: 28px;
   }
 }
 @media screen and (max-width: 900px) {
@@ -336,6 +341,9 @@ nav {
     justify-self: center;
     width: 89%;
   }
+  .photographerItem {
+    min-width: 300px;
+  }
 }
 
 @media screen and (max-width: 405px) {
@@ -344,5 +352,8 @@ nav {
   }
   .headerLogo {
     width: 80px;
+  }
+  #linktomain {
+    left: 30%;
   }
 }
