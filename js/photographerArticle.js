@@ -38,9 +38,9 @@ export class Photographer {
                             <p class="photographerItemCity">${this.city}, ${this.country}</p>
                             <p class="photographerItemText">${this.tagline}</p>
                             <p class="photographerItemPrice">${this.price}€/jour</p>
-                            <ul class="photographerItemTaglist" id="taglist_${this.id}">
+                            <div class="photographerItemTaglist" id="taglist_${this.id}">
                                 ${this.tags.map(tag => `<a href="?tags=${tag}"><span aria-label="${tag}" class="photographerItemTag">#${tag}</span></a>`).join('')}
-                            </ul>
+                            </div>
                         </article>`;
     }
 
@@ -50,9 +50,9 @@ export class Photographer {
                                                     <h2 class="photographerItemName">${this.name}</h2>            
                                                     <p class="photographerItemCity">${this.city}, ${this.country}</p>
                                                     <p class="photographerItemText">${this.tagline}</p>
-                                                    <ul class="photographerItemTaglist" id="taglist_${this.id}">
-                                                        ${this.tags.map(tag => `<a href="../index.html?tags=${tag}"><li class="photographerItemTag">#${tag}</li></a>`).join('')}
-                                                    </ul>
+                                                    <div class="photographerItemTaglist" id="taglist_${this.id}">
+                                                        ${this.tags.map(tag => `<a href="../index.html?tags=${tag}"><span class="photographerItemTag">#${tag}</span></a>`).join('')}
+                                                    </div>
                                                 </div>
                                                 </article>
                                                 <div class="photographerItemMedia">
