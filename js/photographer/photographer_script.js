@@ -16,7 +16,7 @@ var lightboxList = [];
 var totalLikes = 0;
 var articlePhotographer = [];
 //GET JSON FILE
-let myRequest = new Request("./../../data/FishEyeDataFR.json") ;
+let myRequest = new Request("./data/FishEyeDataFR.json") ;
 fetch(myRequest)
     .then(function(resp){
         return resp.json();
