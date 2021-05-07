@@ -3,7 +3,7 @@ import {Fabrik} from "./fabrik.js";
 //DOM
 const fabrik = new Fabrik();
 //GET JSON FILE
-let myRequest = new Request("./data/FishEyeDataFR.json") ;
+let myRequest = new Request("https://raw.githubusercontent.com/FlorysiakSimon/FlorysiakSimon_6_05022021/main/data/FishEyeDataFR.json") ;
 fetch(myRequest)
     .then(function(resp){
         return resp.json();
