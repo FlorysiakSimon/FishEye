@@ -24,6 +24,7 @@ export class Media{
 
     }
     event(){
+        //add data-index
         for (var i = 0; i < this.imgItem.length; i++) {        
             this.imgItem[i].dataset.index = [i];
           } 
