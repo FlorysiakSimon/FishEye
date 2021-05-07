@@ -47,7 +47,7 @@ export class Photographer {
     toHTMLID() {
         this.photographerSelected.innerHTML +=`<article id="${this.id}" class="photographerItem">
                                                 <div class="photographerItemInfo">
-                                                    <h2 class="photographerItemName">${this.name}</h2>            
+                                                    <h1 class="photographerItemName">${this.name}</h1>            
                                                     <p class="photographerItemCity">${this.city}, ${this.country}</p>
                                                     <p class="photographerItemText">${this.tagline}</p>
                                                     <div class="photographerItemTaglist" id="taglist_${this.id}">

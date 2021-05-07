@@ -40,7 +40,7 @@ export class Media{
        return `<article class="mediaItem">
            <div class="mediaVideoImg">${this.mediaImgVid}</div>
            <div class="mediaItemText">
-               <div><h4 class="mediaItemTitle mediaItemText">${this.alt}</h4></div>
+               <div><p class="mediaItemTitle mediaItemText">${this.alt}</p></div>
                <div class="mediaItemInfo">
                    <p class='mediaItemInfoPrice mediaItemText'>${this.price}€<div id="like_${this.id}" class="mediaItemLike mediaItemText" aria-label="${this.likes} j'aimes">${this.likes}</div>
                    <i tabindex="0" class="fas fa-heart mediaItemLikeHeart" id="${this.id}" value="${this.likes}" aria-label="likes"></i>
